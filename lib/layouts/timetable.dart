@@ -1,33 +1,27 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatefulWidget {
+class TimeTable extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _TimeTableState createState() => _TimeTableState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _TimeTableState extends State<TimeTable> {
   List<Map> _books = [
-    {'id': 100, 'title': 'Flutter Basics', 'author': 'David John'},
-    {'id': 102, 'title': 'Git and GitHub', 'author': 'Merlin Nick'},
-    {'id': 101, 'title': 'Flutter Basics', 'author': 'David John'},
+    {'id': 1, 'title': 'Monday', 'author': 'David John'},
+    {'id': 2, 'title': 'Tuesday', 'author': 'Merlin Nick'},
+    {'id': 3, 'title': 'Wednesday', 'author': 'David John'},
+    {'id': 4, 'title': 'Thursday', 'author': 'David John'},
+    {'id': 5, 'title': 'Friday', 'author': 'David John'},
+    {'id': 6, 'title': 'Saturday', 'author': 'David John'},
+    {'id': 7, 'title': 'Sunday', 'author': 'David John'},
   ];
   bool? _isEditMode = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('DataTable Demo'),
-        ),
-        body: ListView(
-          children: [_createDataTable(), _createCheckboxField()],
-        ),
-      ),
-    );
+        home: ListView(
+      children: [_createDataTable(), _createCheckboxField()],
+    ));
   }
 
   DataTable _createDataTable() {
@@ -37,8 +31,13 @@ class _MyAppState extends State<MyApp> {
   List<DataColumn> _createColumns() {
     return [
       DataColumn(label: Text('ID')),
-      DataColumn(label: Text('Book')),
-      DataColumn(label: Text('Author'))
+      DataColumn(label: Text('Monday')),
+      DataColumn(label: Text('Tuesday')),
+      // DataColumn(label: Text('Wednesday')),
+      // DataColumn(label: Text('Thursday')),
+      // DataColumn(label: Text('Friday')),
+      // DataColumn(label: Text('Saturday')),
+      // DataColumn(label: Text('Sunday')),
     ];
   }
 
@@ -69,7 +68,10 @@ class _MyAppState extends State<MyApp> {
             });
           },
         ),
-        Text('Edit mode'),
+        Text(
+          'Edit mode',
+          style: TextStyle(color: Colors.black, fontSize: 16),
+        ),
       ],
     );
   }
