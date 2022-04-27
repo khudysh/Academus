@@ -14,7 +14,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Eugene",
-      home: StudyCrm(),
+      home: const StudyCrm(),
       debugShowCheckedModeBanner: false,
       theme: CustomTheme.lightTheme,
     );

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class TimeTable extends StatefulWidget {
+  const TimeTable({Key? key}) : super(key: key);
+
   @override
   _TimeTableState createState() => _TimeTableState();
 }
 
 class _TimeTableState extends State<TimeTable> {
-  List<Map> _books = [
+  final List<Map> _books = [
     {'id': 1, 'title': 'Monday', 'author': 'David John'},
     {'id': 2, 'title': 'Tuesday', 'author': 'Merlin Nick'},
     {'id': 3, 'title': 'Wednesday', 'author': 'David John'},
@@ -18,11 +20,9 @@ class _TimeTableState extends State<TimeTable> {
   bool? _isEditMode = false;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-        child: ListView(
+    return ListView(
       children: [_createDataTable(), _createCheckboxField()],
-    ));
+    );
   }
 
   DataTable _createDataTable() {
@@ -31,9 +31,9 @@ class _TimeTableState extends State<TimeTable> {
 
   List<DataColumn> _createColumns() {
     return [
-      DataColumn(label: Text('ID')),
-      DataColumn(label: Text('Monday')),
-      DataColumn(label: Text('Tuesday')),
+      const DataColumn(label: Text('ID')),
+      const DataColumn(label: Text('Monday')),
+      const DataColumn(label: Text('Tuesday')),
       // DataColumn(label: Text('Wednesday')),
       // DataColumn(label: Text('Thursday')),
       // DataColumn(label: Text('Friday')),
@@ -54,7 +54,7 @@ class _TimeTableState extends State<TimeTable> {
 
   DataCell _createTitleCell(bookTitle) {
     return DataCell(_isEditMode == true
-        ? TextFormField(initialValue: bookTitle, style: TextStyle(fontSize: 14))
+        ? TextFormField(initialValue: bookTitle, style: const TextStyle(fontSize: 14))
         : Text(bookTitle));
   }
 
@@ -69,7 +69,7 @@ class _TimeTableState extends State<TimeTable> {
             });
           },
         ),
-        Text(
+        const Text(
           'Edit mode',
           style: TextStyle(color: Colors.black, fontSize: 16),
         ),

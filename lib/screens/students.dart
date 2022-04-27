@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Students extends StatefulWidget {
+  const Students({Key? key}) : super(key: key);
+
   @override
   _StudentsState createState() => _StudentsState();
 }

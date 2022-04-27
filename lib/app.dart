@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/settings/adaptive.dart';
-import 'package:srm_test/widgets/mobileView.dart';
-import 'package:srm_test/widgets/desktopView.dart';
+import 'package:srm_test/widgets/mobile_view.dart';
+import 'package:srm_test/widgets/desktop_view.dart';
 
 
 class StudyCrm extends StatefulWidget {
@@ -32,9 +32,9 @@ class _StudyCrmState extends State<StudyCrm> with RestorationMixin {
   Widget build(BuildContext context) {
     final isDesktop = isDisplayDesktop(context);
     if (isDesktop) {
-      return DesktopView();
+      return const DesktopView();
     } else {
-      return MobileView();
+      return const MobileView();
     }
   }
 

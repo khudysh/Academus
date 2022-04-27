@@ -32,13 +32,13 @@ class CustomTheme {
 
   static ThemeData get darkTheme {
   return ThemeData(
-    primaryColor: Color.fromARGB(255, 155, 155, 155),
+    primaryColor: const Color.fromARGB(255, 155, 155, 155),
     scaffoldBackgroundColor: Colors.black,
     fontFamily: 'Montserrat',
     textTheme: ThemeData.dark().textTheme,
     buttonTheme: ButtonThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-      buttonColor: Color.fromARGB(255, 154, 93, 165),
+      buttonColor: const Color.fromARGB(255, 154, 93, 165),
     )
   );
 }

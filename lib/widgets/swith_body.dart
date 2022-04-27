@@ -8,16 +8,16 @@ import 'package:srm_test/screens/students.dart';
 Widget switchBody(int selectedIndex) {
   switch (selectedIndex) {
     case 0:
-      return Home();
+      return const Home();
     case 1:
-      return Register();
+      return const Register();
     case 2:
-      return TimeTable();
+      return const TimeTable();
     case 3:
-      return Groups();
+      return const Groups();
     case 4:
-      return Students();
+      return const Students();
     default:
-      return Home();
+      return const Home();
   }
 }

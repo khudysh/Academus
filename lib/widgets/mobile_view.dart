@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:srm_test/widgets/swithBody.dart';
+import 'package:srm_test/widgets/swith_body.dart';
 
 class MobileView extends StatefulWidget {
   const MobileView({Key? key}) : super(key: key);
@@ -27,11 +27,11 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final destinationRegister = "Журнал";
-    final destinationTimetable = "Расписание";
-    final destinationGroups = "Группы";
-    final destinationStudents = "Ученики";
-    final destinationHome = "Главная";
+    const destinationRegister = "Журнал";
+    const destinationTimetable = "Расписание";
+    const destinationGroups = "Группы";
+    const destinationStudents = "Ученики";
+    const destinationHome = "Главная";
     final selectedItem = <String>[
       destinationHome,
       destinationRegister,
@@ -44,7 +44,7 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
         title: Text(selectedItem[_selectedIndex.value]),
       ),
       body: switchBody(_selectedIndex.value),
-      drawer: Container(
+      drawer: SizedBox(
         width: 100,
         child: Drawer(
           child: NavigationRail(
@@ -55,12 +55,12 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
               });
             },
             labelType: NavigationRailLabelType.selected,
-            destinations: [
+            destinations: const [
               NavigationRailDestination(
-                icon: const Icon(
+                icon: Icon(
                   Icons.home_outlined,
                 ),
-                selectedIcon: const Icon(
+                selectedIcon: Icon(
                   Icons.home,
                 ),
                 label: Text(
@@ -68,10 +68,10 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
                 ),
               ),
               NavigationRailDestination(
-                icon: const Icon(
+                icon: Icon(
                   Icons.favorite_border,
                 ),
-                selectedIcon: const Icon(
+                selectedIcon: Icon(
                   Icons.favorite,
                 ),
                 label: Text(
@@ -79,10 +79,10 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
                 ),
               ),
               NavigationRailDestination(
-                icon: const Icon(
+                icon: Icon(
                   Icons.bookmark_border,
                 ),
-                selectedIcon: const Icon(
+                selectedIcon: Icon(
                   Icons.book,
                 ),
                 label: Text(
@@ -90,10 +90,10 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
                 ),
               ),
               NavigationRailDestination(
-                icon: const Icon(
+                icon: Icon(
                   Icons.star_border,
                 ),
-                selectedIcon: const Icon(
+                selectedIcon: Icon(
                   Icons.star,
                 ),
                 label: Text(
@@ -101,10 +101,10 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
                 ),
               ),
               NavigationRailDestination(
-                icon: const Icon(
+                icon: Icon(
                   Icons.favorite_border,
                 ),
-                selectedIcon: const Icon(
+                selectedIcon: Icon(
                   Icons.favorite,
                 ),
                 label: Text(

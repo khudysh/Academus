@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:srm_test/widgets/swithBody.dart';
-import 'package:srm_test/widgets/navigation.dart';
+import 'package:srm_test/widgets/swith_body.dart';
+
 
 class DesktopView extends StatefulWidget {
   const DesktopView({Key? key}) : super(key: key);
@@ -28,11 +28,11 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final destinationRegister = "Журнал";
-    final destinationTimetable = "Расписание";
-    final destinationGroups = "Группы";
-    final destinationStudents = "Ученики";
-    final destinationHome = "Главная";
+    const destinationRegister = "Журнал";
+    const destinationTimetable = "Расписание";
+    const destinationGroups = "Группы";
+    const destinationStudents = "Ученики";
+    const destinationHome = "Главная";
     final selectedItem = <String>[
       destinationHome,
       destinationRegister,
@@ -79,12 +79,12 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
               });
             },
             labelType: NavigationRailLabelType.selected,
-            destinations: [
+            destinations: const [
               NavigationRailDestination(
-                icon: const Icon(
+                icon: Icon(
                   Icons.home_outlined,
                 ),
-                selectedIcon: const Icon(
+                selectedIcon: Icon(
                   Icons.home,
                 ),
                 label: Text(
@@ -92,10 +92,10 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
                 ),
               ),
               NavigationRailDestination(
-                icon: const Icon(
+                icon: Icon(
                   Icons.favorite_border,
                 ),
-                selectedIcon: const Icon(
+                selectedIcon: Icon(
                   Icons.favorite,
                 ),
                 label: Text(
@@ -103,10 +103,10 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
                 ),
               ),
               NavigationRailDestination(
-                icon: const Icon(
+                icon: Icon(
                   Icons.bookmark_border,
                 ),
-                selectedIcon: const Icon(
+                selectedIcon: Icon(
                   Icons.book,
                 ),
                 label: Text(
@@ -114,10 +114,10 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
                 ),
               ),
               NavigationRailDestination(
-                icon: const Icon(
+                icon: Icon(
                   Icons.star_border,
                 ),
-                selectedIcon: const Icon(
+                selectedIcon: Icon(
                   Icons.star,
                 ),
                 label: Text(
@@ -125,10 +125,10 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
                 ),
               ),
               NavigationRailDestination(
-                icon: const Icon(
+                icon: Icon(
                   Icons.favorite_border,
                 ),
-                selectedIcon: const Icon(
+                selectedIcon: Icon(
                   Icons.favorite,
                 ),
                 label: Text(
