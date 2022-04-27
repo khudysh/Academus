@@ -27,28 +27,29 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final destinationFirst = "Журнал";
-    final destinationSecond = "Расписание";
-    final destinationThird = "Группы";
-    final destinationFour = "Ученики";
+    final destinationRegister = "Журнал";
+    final destinationTimetable = "Расписание";
+    final destinationGroups = "Группы";
+    final destinationStudents = "Ученики";
+    final destinationHome = "Главная";
     final selectedItem = <String>[
-      destinationFirst,
-      destinationSecond,
-      destinationThird,
-      destinationFour,
+      destinationHome,
+      destinationRegister,
+      destinationTimetable,
+      destinationGroups,
+      destinationStudents,
     ];
       return Scaffold(
         appBar: AppBar(
           title: Text(selectedItem[_selectedIndex.value]),
         ),
-        body: Text("ff"),
-        // body: switchBody(_selectedIndex.value),
+         body: switchBody(_selectedIndex.value),
         drawer: Container(
           width: 100,
           child: Drawer(
             child: NavigationRail(
               leading: FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {_selectedIndex.value = 0;},
                 child: const Icon(Icons.add),
               ),
               selectedIndex: _selectedIndex.value,
@@ -67,7 +68,7 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
                     Icons.favorite,
                   ),
                   label: Text(
-                    destinationFirst,
+                    destinationRegister,
                   ),
                 ),
                 NavigationRailDestination(
@@ -78,7 +79,7 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
                     Icons.book,
                   ),
                   label: Text(
-                    destinationSecond,
+                    destinationTimetable,
                   ),
                 ),
                 NavigationRailDestination(
@@ -89,7 +90,7 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
                     Icons.star,
                   ),
                   label: Text(
-                    destinationThird,
+                    destinationGroups,
                   ),
                 ),
                 NavigationRailDestination(
@@ -100,7 +101,7 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
                     Icons.favorite,
                   ),
                   label: Text(
-                    destinationFour,
+                    destinationStudents,
                   ),
                 ),
               ],

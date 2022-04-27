@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:srm_test/app.dart';
 import 'package:srm_test/resources/theme.dart';
 
+
 void main() {
   runApp(const MainPage());
 }

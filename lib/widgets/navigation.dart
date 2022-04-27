@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class NavRailDemo extends StatefulWidget {
-  const NavRailDemo({Key? key}) : super(key: key);
+class Navigation extends StatefulWidget {
+  const Navigation({Key? key}) : super(key: key);
 
   @override
-  _NavRailDemoState createState() => _NavRailDemoState();
+  _NavigationState createState() => _NavigationState();
 }
 
-class _NavRailDemoState extends State<NavRailDemo> with RestorationMixin {
+class _NavigationState extends State<Navigation> with RestorationMixin {
   final RestorableInt _selectedIndex = RestorableInt(0);
 
   @override
@@ -26,80 +26,75 @@ class _NavRailDemoState extends State<NavRailDemo> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-    final destinationFirst = "First";
-    final destinationSecond = "Second";
-    final destinationThird = "Third";
+    final destinationFirst = "Журнал";
+    final destinationSecond = "Расписание";
+    final destinationThird = "Группы";
+    final destinationFour = "Ученики";
     final selectedItem = <String>[
       destinationFirst,
       destinationSecond,
-      destinationThird
+      destinationThird,
+      destinationFour,
     ];
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "localization.demoNavigationRailTitle",
-        ),
-      ),
-      body: Row(
-        children: [
-          NavigationRail(
-            leading: FloatingActionButton(
-              onPressed: () {},
-              child: const Icon(Icons.add),
-            ),
-            selectedIndex: _selectedIndex.value,
-            onDestinationSelected: (index) {
-              setState(() {
-                _selectedIndex.value = index;
-              });
-            },
-            labelType: NavigationRailLabelType.selected,
-            destinations: [
-              NavigationRailDestination(
-                icon: const Icon(
-                  Icons.favorite_border,
-                ),
-                selectedIcon: const Icon(
-                  Icons.favorite,
-                ),
-                label: Text(
-                  destinationFirst,
-                ),
+    return 
+    NavigationRail(
+              leading: FloatingActionButton(
+                onPressed: () {},
+                child: const Icon(Icons.person_rounded),
               ),
-              NavigationRailDestination(
-                icon: const Icon(
-                  Icons.bookmark_border,
+              selectedIndex: _selectedIndex.value,
+              onDestinationSelected: (index) {
+                setState(() {
+                  _selectedIndex.value = index;
+                });
+              },
+              labelType: NavigationRailLabelType.selected,
+              destinations: [
+                NavigationRailDestination(
+                  icon: const Icon(
+                    Icons.favorite_border,
+                  ),
+                  selectedIcon: const Icon(
+                    Icons.favorite,
+                  ),
+                  label: Text(
+                    destinationFirst,
+                  ),
                 ),
-                selectedIcon: const Icon(
-                  Icons.book,
+                NavigationRailDestination(
+                  icon: const Icon(
+                    Icons.bookmark_border,
+                  ),
+                  selectedIcon: const Icon(
+                    Icons.book,
+                  ),
+                  label: Text(
+                    destinationSecond,
+                  ),
                 ),
-                label: Text(
-                  destinationSecond,
+                NavigationRailDestination(
+                  icon: const Icon(
+                    Icons.star_border,
+                  ),
+                  selectedIcon: const Icon(
+                    Icons.star,
+                  ),
+                  label: Text(
+                    destinationThird,
+                  ),
                 ),
-              ),
-              NavigationRailDestination(
-                icon: const Icon(
-                  Icons.star_border,
+                NavigationRailDestination(
+                  icon: const Icon(
+                    Icons.favorite_border,
+                  ),
+                  selectedIcon: const Icon(
+                    Icons.favorite,
+                  ),
+                  label: Text(
+                    destinationFour,
+                  ),
                 ),
-                selectedIcon: const Icon(
-                  Icons.star,
-                ),
-                label: Text(
-                  destinationThird,
-                ),
-              ),
-            ],
-          ),
-          const VerticalDivider(thickness: 1, width: 1),
-          Expanded(
-            child: Center(
-              child: Text(
-                selectedItem[_selectedIndex.value],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+              ],
+            );
   }
 }

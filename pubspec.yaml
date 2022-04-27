@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   adaptive_breakpoints: ^0.1.1
   sidebarx: ^0.2.1+1
+  get: ^4.6.1
 
 dev_dependencies:
   flutter_test:
