@@ -39,77 +39,82 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
       destinationGroups,
       destinationStudents,
     ];
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(selectedItem[_selectedIndex.value]),
-        ),
-         body: switchBody(_selectedIndex.value),
-        drawer: Container(
-          width: 100,
-          child: Drawer(
-            child: NavigationRail(
-              leading: FloatingActionButton(
-                onPressed: () {_selectedIndex.value = 0;},
-                child: const Icon(Icons.add),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(selectedItem[_selectedIndex.value]),
+      ),
+      body: switchBody(_selectedIndex.value),
+      drawer: Container(
+        width: 100,
+        child: Drawer(
+          child: NavigationRail(
+            selectedIndex: _selectedIndex.value,
+            onDestinationSelected: (index) {
+              setState(() {
+                _selectedIndex.value = index;
+              });
+            },
+            labelType: NavigationRailLabelType.selected,
+            destinations: [
+              NavigationRailDestination(
+                icon: const Icon(
+                  Icons.home_outlined,
+                ),
+                selectedIcon: const Icon(
+                  Icons.home,
+                ),
+                label: Text(
+                  destinationHome,
+                ),
               ),
-              selectedIndex: _selectedIndex.value,
-              onDestinationSelected: (index) {
-                setState(() {
-                  _selectedIndex.value = index;
-                });
-              },
-              labelType: NavigationRailLabelType.selected,
-              destinations: [
-                NavigationRailDestination(
-                  icon: const Icon(
-                    Icons.favorite_border,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.favorite,
-                  ),
-                  label: Text(
-                    destinationRegister,
-                  ),
+              NavigationRailDestination(
+                icon: const Icon(
+                  Icons.favorite_border,
                 ),
-                NavigationRailDestination(
-                  icon: const Icon(
-                    Icons.bookmark_border,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.book,
-                  ),
-                  label: Text(
-                    destinationTimetable,
-                  ),
+                selectedIcon: const Icon(
+                  Icons.favorite,
                 ),
-                NavigationRailDestination(
-                  icon: const Icon(
-                    Icons.star_border,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.star,
-                  ),
-                  label: Text(
-                    destinationGroups,
-                  ),
+                label: Text(
+                  destinationRegister,
                 ),
-                NavigationRailDestination(
-                  icon: const Icon(
-                    Icons.favorite_border,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.favorite,
-                  ),
-                  label: Text(
-                    destinationStudents,
-                  ),
+              ),
+              NavigationRailDestination(
+                icon: const Icon(
+                  Icons.bookmark_border,
                 ),
-              ],
-            ),
+                selectedIcon: const Icon(
+                  Icons.book,
+                ),
+                label: Text(
+                  destinationTimetable,
+                ),
+              ),
+              NavigationRailDestination(
+                icon: const Icon(
+                  Icons.star_border,
+                ),
+                selectedIcon: const Icon(
+                  Icons.star,
+                ),
+                label: Text(
+                  destinationGroups,
+                ),
+              ),
+              NavigationRailDestination(
+                icon: const Icon(
+                  Icons.favorite_border,
+                ),
+                selectedIcon: const Icon(
+                  Icons.favorite,
+                ),
+                label: Text(
+                  destinationStudents,
+                ),
+              ),
+            ],
           ),
         ),
-      );
+      ),
+    );
   }
-
-
 }

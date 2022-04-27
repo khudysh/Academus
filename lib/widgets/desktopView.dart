@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/widgets/swithBody.dart';
 import 'package:srm_test/widgets/navigation.dart';
+
 class DesktopView extends StatefulWidget {
   const DesktopView({Key? key}) : super(key: key);
 
@@ -27,7 +28,6 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
-
     final destinationRegister = "Журнал";
     final destinationTimetable = "Расписание";
     final destinationGroups = "Группы";
@@ -40,92 +40,107 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
       destinationGroups,
       destinationStudents,
     ];
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(
+    return Scaffold(
+      appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            setState(() {
+              _selectedIndex.value = 0;
+            });
+          },
+          child: const Padding(
+              padding: EdgeInsetsDirectional.only(start: 30),
+              child: Icon(
+                Icons.school_sharp,
+                size: 40,
+              )),
+          // Text(
+          //   'Academus',
+          //   style: TextStyle(
+          //     fontWeight: FontWeight.bold,
+          //     fontSize: 20,
+          //   ),
+          // ),
+        ),
+        title: Padding(
+              padding: const EdgeInsetsDirectional.only(start: 35),
+          child: Text(
             selectedItem[_selectedIndex.value],
           ),
         ),
-        body: Row(
-          children: [
-            NavigationRail(
-              leading: FloatingActionButton(
-                onPressed: () {setState(() {
-                  _selectedIndex.value = 0;
-                });},
-                child: const Icon(Icons.person_rounded),
+      ),
+      body: Row(
+        children: [
+          NavigationRail(
+            selectedIndex: _selectedIndex.value,
+            onDestinationSelected: (index) {
+              setState(() {
+                _selectedIndex.value = index;
+              });
+            },
+            labelType: NavigationRailLabelType.selected,
+            destinations: [
+              NavigationRailDestination(
+                icon: const Icon(
+                  Icons.home_outlined,
+                ),
+                selectedIcon: const Icon(
+                  Icons.home,
+                ),
+                label: Text(
+                  destinationHome,
+                ),
               ),
-              selectedIndex: _selectedIndex.value,
-              onDestinationSelected: (index) {
-                setState(() {
-                  _selectedIndex.value = index;
-                });
-              },
-              labelType: NavigationRailLabelType.selected,
-              destinations: [
-                NavigationRailDestination(
-                  icon: const Icon(
-                    Icons.home_outlined,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.home,
-                  ),
-                  label: Text(
-                    destinationHome,
-                  ),
+              NavigationRailDestination(
+                icon: const Icon(
+                  Icons.favorite_border,
                 ),
-                NavigationRailDestination(
-                  icon: const Icon(
-                    Icons.favorite_border,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.favorite,
-                  ),
-                  label: Text(
-                    destinationRegister,
-                  ),
+                selectedIcon: const Icon(
+                  Icons.favorite,
                 ),
-                NavigationRailDestination(
-                  icon: const Icon(
-                    Icons.bookmark_border,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.book,
-                  ),
-                  label: Text(
-                    destinationTimetable,
-                  ),
+                label: Text(
+                  destinationRegister,
                 ),
-                NavigationRailDestination(
-                  icon: const Icon(
-                    Icons.star_border,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.star,
-                  ),
-                  label: Text(
-                    destinationGroups,
-                  ),
+              ),
+              NavigationRailDestination(
+                icon: const Icon(
+                  Icons.bookmark_border,
                 ),
-                NavigationRailDestination(
-                  icon: const Icon(
-                    Icons.favorite_border,
-                  ),
-                  selectedIcon: const Icon(
-                    Icons.favorite,
-                  ),
-                  label: Text(
-                    destinationStudents,
-                  ),
+                selectedIcon: const Icon(
+                  Icons.book,
                 ),
-              ],
-            ),
-            const VerticalDivider(thickness: 1, width: 1),
-            Expanded(child: switchBody(_selectedIndex.value)),
-          ],
-        ),
-      );
+                label: Text(
+                  destinationTimetable,
+                ),
+              ),
+              NavigationRailDestination(
+                icon: const Icon(
+                  Icons.star_border,
+                ),
+                selectedIcon: const Icon(
+                  Icons.star,
+                ),
+                label: Text(
+                  destinationGroups,
+                ),
+              ),
+              NavigationRailDestination(
+                icon: const Icon(
+                  Icons.favorite_border,
+                ),
+                selectedIcon: const Icon(
+                  Icons.favorite,
+                ),
+                label: Text(
+                  destinationStudents,
+                ),
+              ),
+            ],
+          ),
+          const VerticalDivider(thickness: 1, width: 1),
+          Expanded(child: switchBody(_selectedIndex.value)),
+        ],
+      ),
+    );
   }
-
-
 }

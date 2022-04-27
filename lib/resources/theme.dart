@@ -7,7 +7,6 @@ class CustomTheme {
     return ThemeData( //2
       primaryColor: _primaryColor,
       backgroundColor: Colors.white,
-      
         highlightColor: Colors.transparent,
         colorScheme: const ColorScheme(
           primary: _primaryColor,
