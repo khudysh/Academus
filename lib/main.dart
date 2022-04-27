@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:srm_test/studyCrm.dart';
-
+import 'package:srm_test/app.dart';
+import 'package:srm_test/resources/theme.dart';
 
 void main() {
   runApp(const MainPage());
@@ -11,10 +11,11 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: "Eugene",
       home: StudyCrm(),
       debugShowCheckedModeBanner: false,
+      theme: CustomTheme.lightTheme,
     );
   }
 }

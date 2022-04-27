@@ -18,8 +18,9 @@ class _TimeTableState extends State<TimeTable> {
   bool? _isEditMode = false;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: ListView(
+    return Container(
+      
+        child: ListView(
       children: [_createDataTable(), _createCheckboxField()],
     ));
   }

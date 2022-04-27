@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/widgets/swithBody.dart';
 
-class DesktopNav extends StatefulWidget {
-  const DesktopNav({Key? key}) : super(key: key);
+class MobileView extends StatefulWidget {
+  const MobileView({Key? key}) : super(key: key);
 
   @override
-  State<DesktopNav> createState() => _DesktopNavState();
+  State<MobileView> createState() => _MobileViewState();
 }
 
-class _DesktopNavState extends State<DesktopNav> with RestorationMixin {
+class _MobileViewState extends State<MobileView> with RestorationMixin {
   final RestorableInt _selectedIndex = RestorableInt(0);
 
   @override
@@ -39,13 +39,14 @@ class _DesktopNavState extends State<DesktopNav> with RestorationMixin {
     ];
       return Scaffold(
         appBar: AppBar(
-          title: Text(
-            selectedItem[_selectedIndex.value],
-          ),
+          title: Text(selectedItem[_selectedIndex.value]),
         ),
-        body: Row(
-          children: [
-            NavigationRail(
+        body: Text("ff"),
+        // body: switchBody(_selectedIndex.value),
+        drawer: Container(
+          width: 100,
+          child: Drawer(
+            child: NavigationRail(
               leading: FloatingActionButton(
                 onPressed: () {},
                 child: const Icon(Icons.add),
@@ -104,9 +105,7 @@ class _DesktopNavState extends State<DesktopNav> with RestorationMixin {
                 ),
               ],
             ),
-            const VerticalDivider(thickness: 1, width: 1),
-            Expanded(child: switchBody(_selectedIndex.value)),
-          ],
+          ),
         ),
       );
   }

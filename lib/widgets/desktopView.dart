@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/widgets/swithBody.dart';
 
-class MobileNav extends StatefulWidget {
-  const MobileNav({Key? key}) : super(key: key);
+class DesktopView extends StatefulWidget {
+  const DesktopView({Key? key}) : super(key: key);
 
   @override
-  State<MobileNav> createState() => _MobileNavState();
+  State<DesktopView> createState() => _DesktopViewState();
 }
 
-class _MobileNavState extends State<MobileNav> with RestorationMixin {
+class _DesktopViewState extends State<DesktopView> with RestorationMixin {
   final RestorableInt _selectedIndex = RestorableInt(0);
 
   @override
@@ -27,6 +27,7 @@ class _MobileNavState extends State<MobileNav> with RestorationMixin {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final destinationFirst = "Журнал";
     final destinationSecond = "Расписание";
     final destinationThird = "Группы";
@@ -38,18 +39,18 @@ class _MobileNavState extends State<MobileNav> with RestorationMixin {
       destinationFour,
     ];
       return Scaffold(
+        
         appBar: AppBar(
-          title: Text(selectedItem[_selectedIndex.value]),
+          title: Text(
+            selectedItem[_selectedIndex.value],
+          ),
         ),
-        body: Text("ff"),
-        // body: switchBody(_selectedIndex.value),
-        drawer: Container(
-          width: 100,
-          child: Drawer(
-            child: NavigationRail(
+        body: Row(
+          children: [
+            NavigationRail(
               leading: FloatingActionButton(
                 onPressed: () {},
-                child: const Icon(Icons.add),
+                child: const Icon(Icons.person_rounded),
               ),
               selectedIndex: _selectedIndex.value,
               onDestinationSelected: (index) {
@@ -105,7 +106,9 @@ class _MobileNavState extends State<MobileNav> with RestorationMixin {
                 ),
               ],
             ),
-          ),
+            const VerticalDivider(thickness: 1, width: 1),
+            Expanded(child: switchBody(_selectedIndex.value)),
+          ],
         ),
       );
   }
