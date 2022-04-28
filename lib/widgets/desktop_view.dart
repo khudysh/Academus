@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/widgets/swith_body.dart';
 
-
 class DesktopView extends StatefulWidget {
   const DesktopView({Key? key}) : super(key: key);
 
@@ -42,28 +41,51 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
     ];
     return Scaffold(
       appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            setState(() {
-              _selectedIndex.value = 0;
-            });
-          },
-          child: const Padding(
-              padding: EdgeInsetsDirectional.only(start: 30),
-              child: Icon(
-                Icons.school_sharp,
-                size: 40,
-              )),
-          // Text(
-          //   'Academus',
-          //   style: TextStyle(
-          //     fontWeight: FontWeight.bold,
-          //     fontSize: 20,
-          //   ),
-          // ),
+        automaticallyImplyLeading: false,
+        leading: OverflowBox(
+          minWidth: 0.0,
+          minHeight: 0.0,
+          maxWidth: double.infinity,
+          maxHeight: double.infinity,
+          child: InkWell(
+            splashColor: const Color.fromARGB(0, 0, 0, 0),
+            onTap: () {
+              setState(() {
+                _selectedIndex.value = 0;
+              });
+            },
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(start: 30),
+              child: Row(
+                children: const [
+                  Text(
+                    'A',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Icon(
+                    Icons.school_sharp,
+                    size: 40,
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.only(start: 5),
+                    child: Text(
+                      'S',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
         ),
         title: Padding(
-              padding: const EdgeInsetsDirectional.only(start: 35),
+          padding: const EdgeInsetsDirectional.only(start: 35),
           child: Text(
             selectedItem[_selectedIndex.value],
           ),
@@ -93,21 +115,10 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
               ),
               NavigationRailDestination(
                 icon: Icon(
-                  Icons.favorite_border,
+                  Icons.schedule_outlined,
                 ),
                 selectedIcon: Icon(
-                  Icons.favorite,
-                ),
-                label: Text(
-                  destinationRegister,
-                ),
-              ),
-              NavigationRailDestination(
-                icon: Icon(
-                  Icons.bookmark_border,
-                ),
-                selectedIcon: Icon(
-                  Icons.book,
+                  Icons.schedule,
                 ),
                 label: Text(
                   destinationTimetable,
@@ -115,21 +126,30 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
               ),
               NavigationRailDestination(
                 icon: Icon(
-                  Icons.star_border,
+                  Icons.app_registration_outlined,
                 ),
                 selectedIcon: Icon(
-                  Icons.star,
+                  Icons.app_registration,
+                ),
+                label: Text(
+                  destinationRegister,
+                ),
+              ),
+              NavigationRailDestination(
+                icon: Icon(
+                  Icons.groups_outlined,
+                ),
+                selectedIcon: Icon(
+                  Icons.groups,
                 ),
                 label: Text(
                   destinationGroups,
                 ),
               ),
               NavigationRailDestination(
-                icon: Icon(
-                  Icons.favorite_border,
-                ),
+                icon: Icon(Icons.person_search_outlined),
                 selectedIcon: Icon(
-                  Icons.favorite,
+                  Icons.person_search,
                 ),
                 label: Text(
                   destinationStudents,

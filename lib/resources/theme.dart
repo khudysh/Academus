@@ -5,6 +5,7 @@ const _primaryColor = Color(0xFFd62828);
 class CustomTheme {
   static ThemeData get lightTheme { //1
     return ThemeData( //2
+    fontFamily: 'OpenSans',
       primaryColor: _primaryColor,
       backgroundColor: Colors.white,
         highlightColor: Colors.transparent,
@@ -34,7 +35,7 @@ class CustomTheme {
   return ThemeData(
     primaryColor: const Color.fromARGB(255, 155, 155, 155),
     scaffoldBackgroundColor: Colors.black,
-    fontFamily: 'Montserrat',
+    fontFamily: 'OpenSans',
     textTheme: ThemeData.dark().textTheme,
     buttonTheme: ButtonThemeData(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
