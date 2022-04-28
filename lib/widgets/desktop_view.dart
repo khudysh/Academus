@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:srm_test/widgets/swith_body.dart';
+import 'package:srm_test/widgets/switch_body.dart';
 
 class DesktopView extends StatefulWidget {
   const DesktopView({Key? key}) : super(key: key);
