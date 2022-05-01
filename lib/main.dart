@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:srm_test/app.dart';
 import 'package:srm_test/resources/theme.dart';
-import 'package:srm_test/widgets/switch_body.dart';
-import 'package:srm_test/routes.dart';
+import 'package:srm_test/controllers/switch_body.dart';
 
 void main() {
   runApp(const MainApp());
@@ -20,7 +19,7 @@ class MainApp extends StatelessWidget {
       create: (context) => CurrentScreen(),
       child: MaterialApp(
           title: "Eugene",
-          home: StudyCrm(),
+          home: const StudyCrm(),
           debugShowCheckedModeBanner: false,
           theme: CustomTheme.lightTheme,
           // initialRoute: "/home",

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:srm_test/widgets/switch_body.dart';
-import 'package:srm_test/routes.dart';
-import 'package:srm_test/resources/const.dart';
+import 'package:srm_test/controllers/switch_body.dart';
 
 class Leading extends StatelessWidget{
-  final groupAlign;
-   Leading({Key? key, this.groupAlign}) : super(key: key);
+   const Leading({Key? key}) : super(key: key);
 
 
   @override
