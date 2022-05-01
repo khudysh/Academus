@@ -10,6 +10,7 @@ class StudyCrm extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+    print("rebuild StudyCrm");
     final isDesktop = isDisplayDesktop(context);
     if (isDesktop) {
       return const DesktopView();

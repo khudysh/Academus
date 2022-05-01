@@ -1,10 +1,10 @@
 
-// import 'package:get/get.dart';
-// import 'screens/home.dart';
-
-// class Routes {
-//   static final routes = [
-//     GetPage(name: '/home', page: () => Home()),
-//     //GetPage(name: '/group', page: () => const CurrencyScreen())
-//   ];
-// }
+class Routes {
+  static final routes = {
+    0:'/home',
+    1:'/timetable',
+    2:'/register',
+    3:'/groups',
+    4:'/students',
+  };
+}

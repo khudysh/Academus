@@ -1,59 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:srm_test/widgets/switch_body.dart';
+import 'package:srm_test/resources/const.dart';
 
-class MobileView extends StatefulWidget {
+class MobileView extends StatelessWidget {
   const MobileView({Key? key}) : super(key: key);
 
   @override
-  State<MobileView> createState() => _MobileViewState();
-}
-
-class _MobileViewState extends State<MobileView> with RestorationMixin {
-  final RestorableInt _selectedIndex = RestorableInt(0);
-
-  @override
-  String get restorationId => 'nav_rail_demo';
-
-  @override
-  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
-    registerForRestoration(_selectedIndex, 'selected_index');
-  }
-
-  @override
-  void dispose() {
-    _selectedIndex.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    const destinationRegister = "Журнал";
-    const destinationTimetable = "Расписание";
-    const destinationGroups = "Группы";
-    const destinationStudents = "Ученики";
-    const destinationHome = "Главная";
-    final selectedItem = <String>[
-      destinationHome,
-      destinationRegister,
-      destinationTimetable,
-      destinationGroups,
-      destinationStudents,
-    ];
+    print("rebuild DesktopView");
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(selectedItem[_selectedIndex.value]),
+        title: Text(selectedItem[context.watch<CurrentScreen>().getCurrentScreenNum]),
       ),
       body: context.watch<CurrentScreen>().getCurrentScreen,
       drawer: SizedBox(
         width: 100,
         child: Drawer(
           child: NavigationRail(
-            selectedIndex: _selectedIndex.value,
+            groupAlignment: -0.7,
+            selectedIndex: context.watch<CurrentScreen>().getCurrentScreenNum,
             onDestinationSelected: (index) {
-              setState(() {
-                _selectedIndex.value = index;
-              });
+              context.read<CurrentScreen>().switchBody(index);
             },
             labelType: NavigationRailLabelType.selected,
             destinations: const [
@@ -70,21 +39,10 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
               ),
               NavigationRailDestination(
                 icon: Icon(
-                  Icons.favorite_border,
+                  Icons.schedule_outlined,
                 ),
                 selectedIcon: Icon(
-                  Icons.favorite,
-                ),
-                label: Text(
-                  destinationRegister,
-                ),
-              ),
-              NavigationRailDestination(
-                icon: Icon(
-                  Icons.bookmark_border,
-                ),
-                selectedIcon: Icon(
-                  Icons.book,
+                  Icons.schedule,
                 ),
                 label: Text(
                   destinationTimetable,
@@ -92,21 +50,30 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
               ),
               NavigationRailDestination(
                 icon: Icon(
-                  Icons.star_border,
+                  Icons.app_registration_outlined,
                 ),
                 selectedIcon: Icon(
-                  Icons.star,
+                  Icons.app_registration,
+                ),
+                label: Text(
+                  destinationRegister,
+                ),
+              ),
+              NavigationRailDestination(
+                icon: Icon(
+                  Icons.groups_outlined,
+                ),
+                selectedIcon: Icon(
+                  Icons.groups,
                 ),
                 label: Text(
                   destinationGroups,
                 ),
               ),
               NavigationRailDestination(
-                icon: Icon(
-                  Icons.favorite_border,
-                ),
+                icon: Icon(Icons.person_search_outlined),
                 selectedIcon: Icon(
-                  Icons.favorite,
+                  Icons.person_search,
                 ),
                 label: Text(
                   destinationStudents,

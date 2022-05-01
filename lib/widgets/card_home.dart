@@ -15,6 +15,7 @@ class CardHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("rebuild CardHome");
     return Card(
       child: InkWell(
         hoverColor: Colors.black.withAlpha(3),

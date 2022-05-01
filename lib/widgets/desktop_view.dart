@@ -1,24 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:srm_test/widgets/switch_body.dart';
-
+import 'package:srm_test/routes.dart';
+import 'package:srm_test/resources/const.dart';
 class DesktopView extends StatelessWidget {
   const DesktopView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const destinationRegister = "Журнал";
-    const destinationTimetable = "Расписание";
-    const destinationGroups = "Группы";
-    const destinationStudents = "Ученики";
-    const destinationHome = "Главная";
-    final selectedItem = <String>[
-      destinationHome,
-      destinationRegister,
-      destinationTimetable,
-      destinationGroups,
-      destinationStudents,
-    ];
+    print("rebuild DesktopView");
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -75,8 +66,9 @@ class DesktopView extends StatelessWidget {
             selectedIndex: context.watch<CurrentScreen>().getCurrentScreenNum,
             onDestinationSelected: (index) {
               context.read<CurrentScreen>().switchBody(index);
+              //Navigator.pushReplacementNamed(context, Routes.routes[index]!);
             },
-            labelType: NavigationRailLabelType.selected,
+            labelType: NavigationRailLabelType.all,
             destinations: const [
               NavigationRailDestination(
                 icon: Icon(
