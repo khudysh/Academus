@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:srm_test/app.dart';
 import 'package:srm_test/resources/theme.dart';
+import 'package:srm_test/widgets/switch_body.dart';
 
 
 void main() {
@@ -12,11 +14,14 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Eugene",
-      home: const StudyCrm(),
-      debugShowCheckedModeBanner: false,
-      theme: CustomTheme.lightTheme,
+    return ChangeNotifierProvider<CurrentScreen>(
+      create: (context) => CurrentScreen(),
+      child: MaterialApp(
+        title: "Eugene",
+        home: StudyCrm(),
+        debugShowCheckedModeBanner: false,
+        theme: CustomTheme.lightTheme,
+      ),
     );
   }
 }

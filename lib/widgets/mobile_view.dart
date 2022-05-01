@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:srm_test/widgets/switch_body.dart';
 
 class MobileView extends StatefulWidget {
@@ -43,7 +44,7 @@ class _MobileViewState extends State<MobileView> with RestorationMixin {
       appBar: AppBar(
         title: Text(selectedItem[_selectedIndex.value]),
       ),
-      body: switchBody(_selectedIndex.value),
+      body: context.watch<CurrentScreen>().getCurrentScreen,
       drawer: SizedBox(
         width: 100,
         child: Drawer(

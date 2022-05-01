@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/widgets/card_home.dart';
 import 'package:srm_test/settings/adaptive.dart';
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
-
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
   final standartPadding = 110.0;
 
   @override
@@ -28,6 +22,7 @@ class _HomeState extends State<Home> {
                 icon: Icons.schedule,
                 describe:
                     "Здесь можно посмотреть расписание занятий в разных кабинетах, а также изменить его",
+                screenNum: 1,
               ),
             ),
             Padding(
@@ -38,6 +33,7 @@ class _HomeState extends State<Home> {
                 icon: Icons.app_registration,
                 describe:
                     "Здесь можно посмотреть журнал посещений, отметить присутствующих, прописать темы уроков",
+                    screenNum: 2,
               ),
             ),
             Padding(
@@ -48,6 +44,7 @@ class _HomeState extends State<Home> {
                 icon: Icons.groups,
                 describe:
                     "Здесь можно посмотреть все группы, их расписание и состав",
+                    screenNum: 3,
               ),
             ),
             Padding(
@@ -58,6 +55,7 @@ class _HomeState extends State<Home> {
                 icon: Icons.person_search,
                 describe:
                     "Здесь можно посмотреть информацию по каждому отдельному ученику",
+                   screenNum: 4,
               ),
             ),
           ],
@@ -78,6 +76,7 @@ class _HomeState extends State<Home> {
                 title: "Расписание",
                 describe:
                     "Здесь можно посмотреть информацию по каждому отдельному ученику",
+                    screenNum: 0,
               ),
             ),
             Expanded(
@@ -86,6 +85,7 @@ class _HomeState extends State<Home> {
                 title: "Расписание",
                 describe:
                     "Здесь можно посмотреть информацию по каждому отдельному ученику",
+                    screenNum: 0,
               ),
             ),
           ],

@@ -1,29 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:srm_test/widgets/switch_body.dart';
 
-class DesktopView extends StatefulWidget {
+class DesktopView extends StatelessWidget {
   const DesktopView({Key? key}) : super(key: key);
-
-  @override
-  State<DesktopView> createState() => _DesktopViewState();
-}
-
-class _DesktopViewState extends State<DesktopView> with RestorationMixin {
-  final RestorableInt _selectedIndex = RestorableInt(0);
-
-  @override
-  String get restorationId => 'nav_rail_demo';
-
-  @override
-  void restoreState(RestorationBucket? oldBucket, bool initialRestore) {
-    registerForRestoration(_selectedIndex, 'selected_index');
-  }
-
-  @override
-  void dispose() {
-    _selectedIndex.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +30,7 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
           child: InkWell(
             splashColor: const Color.fromARGB(0, 0, 0, 0),
             onTap: () {
-              setState(() {
-                _selectedIndex.value = 0;
-              });
+              context.read<CurrentScreen>().switchBody(0);
             },
             child: Padding(
               padding: const EdgeInsetsDirectional.only(start: 30),
@@ -87,18 +65,16 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
         title: Padding(
           padding: const EdgeInsetsDirectional.only(start: 35),
           child: Text(
-            selectedItem[_selectedIndex.value],
+            selectedItem[context.watch<CurrentScreen>().getCurrentScreenNum],
           ),
         ),
       ),
       body: Row(
         children: [
           NavigationRail(
-            selectedIndex: _selectedIndex.value,
+            selectedIndex: context.watch<CurrentScreen>().getCurrentScreenNum,
             onDestinationSelected: (index) {
-              setState(() {
-                _selectedIndex.value = index;
-              });
+              context.read<CurrentScreen>().switchBody(index);
             },
             labelType: NavigationRailLabelType.selected,
             destinations: const [
@@ -158,7 +134,7 @@ class _DesktopViewState extends State<DesktopView> with RestorationMixin {
             ],
           ),
           const VerticalDivider(thickness: 1, width: 1),
-          Expanded(child: switchBody(_selectedIndex.value)),
+          Expanded(child: context.watch<CurrentScreen>().getCurrentScreen),
         ],
       ),
     );

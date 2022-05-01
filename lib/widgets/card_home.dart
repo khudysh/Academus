@@ -1,14 +1,16 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'switch_body.dart';
 
 class CardHome extends StatelessWidget {
   final String title;
   final IconData icon;
   final String describe;
+  final int screenNum;
 
-  const CardHome({Key? key, required this.title, required this.icon, required this.describe})
+  const CardHome({Key? key, required this.title, required this.icon, required this.describe, required this.screenNum})
       : super(key: key);
 
   @override
@@ -18,7 +20,7 @@ class CardHome extends StatelessWidget {
         hoverColor: Colors.black.withAlpha(3),
         splashColor: Color(0xFFFCBF49).withAlpha(90),
         onTap: () {
-          print("Tapped $title card");
+          context.read<CurrentScreen>().switchBody(screenNum);
         },
         child: SizedBox(
           width: 300,
