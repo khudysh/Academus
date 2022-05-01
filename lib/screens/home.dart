@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/widgets/card_home.dart';
-import 'package:srm_test/settings/adaptive.dart';
+
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
   final standartPadding = 110.0;
@@ -11,11 +11,10 @@ class Home extends StatelessWidget {
 
     // final isDesktop = isDisplayDesktop(context);
     // if (isDesktop) {
-    return 
-      
+    return
         GridView.extent(
-           maxCrossAxisExtent: 300.0,
-           
+           maxCrossAxisExtent: 320.0,
+
         crossAxisSpacing: 20.0,
         mainAxisSpacing: 20.0,
           children: [

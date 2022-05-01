@@ -13,7 +13,7 @@ class CurrentScreen with ChangeNotifier {
   int get getCurrentScreenNum => _currentScreenNum;
 
   void switchBody(int selectedIndex) {
-    print(selectedIndex);
+    print("switch to screen #${selectedIndex} ");
 
     switch (selectedIndex) {
       case 0:
