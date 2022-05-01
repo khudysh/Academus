@@ -9,18 +9,13 @@ class Leading extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     print("rebuild Leading");
-    return OverflowBox(
-          minWidth: 0.0,
-          minHeight: 0.0,
-          maxWidth: double.infinity,
-          maxHeight: double.infinity,
-          child: InkWell(
+    return  InkWell(
             splashColor: const Color.fromARGB(0, 0, 0, 0),
             onTap: () {
               context.read<CurrentScreen>().switchBody(0);
             },
             child: Padding(
-              padding: const EdgeInsetsDirectional.only(start: 30),
+              padding: const EdgeInsetsDirectional.only(start: 15),
               child: Row(
                 children: const [
                   Text(
@@ -47,7 +42,7 @@ class Leading extends StatelessWidget{
                 ],
               ),
             ),
-          ),
+          
         );
   }
 

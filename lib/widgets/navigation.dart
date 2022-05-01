@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:srm_test/controllers/switch_body.dart';
 import 'package:srm_test/resources/const.dart';
-
+import 'package:srm_test/routes.dart';
 class Navigation extends StatelessWidget{
   final double groupAlign;
    const Navigation({Key? key, required this.groupAlign}) : super(key: key);
@@ -16,6 +16,8 @@ class Navigation extends StatelessWidget{
             selectedIndex: context.watch<CurrentScreen>().getCurrentScreenNum,
             onDestinationSelected: (index) {
               context.read<CurrentScreen>().switchBody(index);
+              //! Найти как пофиксить анимацию для роутинга, разобраться почему не работает group
+              //Navigator.pushReplacementNamed(context, Routes.routes[index]!);
             },
             labelType: NavigationRailLabelType.all,
             destinations: const [

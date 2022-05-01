@@ -12,11 +12,13 @@ class Home extends StatelessWidget {
     // final isDesktop = isDisplayDesktop(context);
     // if (isDesktop) {
     return
-        GridView.extent(
-           maxCrossAxisExtent: 320.0,
+        GridView(
 
-        crossAxisSpacing: 20.0,
-        mainAxisSpacing: 20.0,
+    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+      maxCrossAxisExtent: 300.0,
+      crossAxisSpacing: 20.0,
+      mainAxisSpacing: 20.0,
+    ),
           children: const [
              HomeCard(
                 title: "Расписание",
@@ -46,9 +48,9 @@ class Home extends StatelessWidget {
                     "Здесь можно посмотреть информацию по каждому отдельному ученику",
                    screenNum: 4,
               ),
-            
+
           ],
-        
+
     );
   //   }
   //   else {

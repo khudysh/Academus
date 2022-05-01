@@ -16,9 +16,11 @@ class StudyCrm extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
             leading: sizeOfScreen < minDesktopSize ? null : const Leading(),
+            leadingWidth: 100,
+            actions: [Icon(Icons.person_rounded, size: 30,), Icon(Icons.exit_to_app, size: 30,)],
             title: sizeOfScreen < minDesktopSize
                 ? const TitleApp(padding: 0)
-                : const TitleApp(padding: 25)),
+                : const TitleApp(padding: 0)),
         drawer: sizeOfScreen < minDesktopSize
             ? const SizedBox(
                 width: 125, child: Drawer(child: Navigation(groupAlign: -0.7)))
