@@ -5,6 +5,7 @@ import 'package:srm_test/controllers/switch_body.dart';
 import 'package:srm_test/widgets/navigation.dart';
 import 'package:srm_test/widgets/title.dart';
 import 'resources/const.dart';
+
 class StudyCrm extends StatelessWidget {
   const StudyCrm({Key? key}) : super(key: key);
 
@@ -16,11 +17,36 @@ class StudyCrm extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
             leading: sizeOfScreen < minDesktopSize ? null : const Leading(),
-            leadingWidth: 100,
-            actions: [Icon(Icons.person_rounded, size: 30,), Icon(Icons.exit_to_app, size: 30,)],
+            leadingWidth: sizeOfScreen < minDesktopSize ? 56 : 100,
+            actions: [
+              Padding(
+                padding: EdgeInsets.only(right: 15),
+                child: InkResponse(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/login');
+                  },
+                  child: const Icon(
+                    Icons.account_circle_sharp,
+                    size: 30,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 15),
+                child: InkResponse(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/login');
+                  },
+                  child: const Icon(
+                    Icons.login,
+                    size: 30,
+                  ),
+                ),
+              ),
+            ],
             title: sizeOfScreen < minDesktopSize
-                ? const TitleApp(padding: 0)
-                : const TitleApp(padding: 0)),
+                ? const TitleApp(align: Alignment.center)
+                : const TitleApp(align: Alignment.centerLeft)),
         drawer: sizeOfScreen < minDesktopSize
             ? const SizedBox(
                 width: 125, child: Drawer(child: Navigation(groupAlign: -0.7)))
@@ -34,7 +60,9 @@ class StudyCrm extends StatelessWidget {
                             width: 100.0,
                             child: Row(
                               children: const [
-                                Navigation(groupAlign: -1,),
+                                Navigation(
+                                  groupAlign: -1,
+                                ),
                                 VerticalDivider(thickness: 1, width: 1),
                               ],
                             )),

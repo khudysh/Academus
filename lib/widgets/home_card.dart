@@ -34,23 +34,18 @@ class HomeCard extends StatelessWidget {
                 ),
               ),
               Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Text(
+                child:  Text(
                     title,
                     style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w500,
                         fontFamily: 'OpenSans'),
                   ),
-                ),
               ),
-              const Padding(padding: EdgeInsets.only(top: 20, left: 15, right: 15), child: Divider(color: Color(0xFFFCBF49),)),
-              Padding(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: Center(
+              const Divider(color: Color(0xFFFCBF49),),
+               Center(
                     child: Text(describe, textAlign: TextAlign.center),
-                  ))
+                  ),
             ],
           ),
         ),

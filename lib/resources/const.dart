@@ -3,7 +3,7 @@ const destinationTimetable = "Расписание";
 const destinationGroups = "Группы";
 const destinationStudents = "Ученики";
 const destinationHome = "Главная";
-const minDesktopSize = 500;
+const minDesktopSize = 600;
 final selectedItem = <String>[
   destinationHome,
   destinationTimetable,

@@ -24,28 +24,28 @@ class Home extends StatelessWidget {
                 title: "Расписание",
                 icon: Icons.schedule,
                 describe:
-                    "Здесь можно посмотреть расписание занятий в разных кабинетах, а также изменить его",
+                    "Расписание занятий по кабинетам",
                 screenNum: 1,
               ),
             HomeCard(
                 title: "Журнал",
                 icon: Icons.app_registration,
                 describe:
-                    "Здесь можно посмотреть журнал посещений, отметить присутствующих, прописать темы уроков",
+                    "Журнал посещений и темы уроков",
                     screenNum: 2,
               ),
            HomeCard(
                 title: "Группы",
                 icon: Icons.groups,
                 describe:
-                    "Здесь можно посмотреть все группы, их расписание и состав",
+                    "Группы, их расписание и состав",
                     screenNum: 3,
               ),
             HomeCard(
                 title: "Ученики",
                 icon: Icons.person_search,
                 describe:
-                    "Здесь можно посмотреть информацию по каждому отдельному ученику",
+                    "Информация по всем ученикам",
                    screenNum: 4,
               ),
 
