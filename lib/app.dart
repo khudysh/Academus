@@ -15,6 +15,7 @@ class StudyCrm extends StatelessWidget {
     final sizeOfScreen = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         appBar: AppBar(
             leading: sizeOfScreen < minDesktopSize ? null : const Leading(),
             leadingWidth: sizeOfScreen < minDesktopSize ? 56 : 100,
@@ -67,7 +68,7 @@ class StudyCrm extends StatelessWidget {
                               ],
                             )),
                         SizedBox(
-                            width: MediaQuery.of(context).size.width - 200.0,
+                            width: MediaQuery.of(context).size.width - 100.0,
                             child:
                                 context.watch<CurrentScreen>().getCurrentScreen)
                       ]))));

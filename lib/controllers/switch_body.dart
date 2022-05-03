@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:srm_test/screens/groups.dart';
 import 'package:srm_test/screens/timetable.dart';
 import 'package:srm_test/screens/visitor_log.dart';
-import 'package:srm_test/screens/home.dart';
+import 'package:srm_test/screens/home/home.dart';
 import 'package:srm_test/screens/students.dart';
 
 class CurrentScreen with ChangeNotifier {
