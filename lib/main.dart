@@ -29,34 +29,34 @@ class MainApp extends StatelessWidget {
               Future.delayed(Duration.zero, () {
                 context.read<CurrentScreen>().switchBody(0);
               });
-              return StudyCrm();
+              return const StudyCrm();
             },
             "/timetable": (context) {
               Future.delayed(Duration.zero, () {
                 context.read<CurrentScreen>().switchBody(1);
               });
-              return StudyCrm();
+              return const StudyCrm();
             },
             "/register": (context) {
               Future.delayed(Duration.zero, () {
                 context.read<CurrentScreen>().switchBody(2);
               });
-              return StudyCrm();
+              return const StudyCrm();
             },
             "/groups": (context) {
               Future.delayed(Duration.zero, () {
                 context.read<CurrentScreen>().switchBody(3);
               });
-              return StudyCrm();
+              return const StudyCrm();
             },
             "/students": (context) {
               Future.delayed(Duration.zero, () {
                 context.read<CurrentScreen>().switchBody(4);
               });
-              return StudyCrm();
+              return const StudyCrm();
             },
             "/login": (context) {
-              return LoginScreen();
+              return const LoginScreen();
             },
             
           }

@@ -21,7 +21,7 @@ class StudyCrm extends StatelessWidget {
             leadingWidth: sizeOfScreen < minDesktopSize ? 56 : 100,
             actions: [
               Padding(
-                padding: EdgeInsets.only(right: 15),
+                padding: const EdgeInsets.only(right: 15),
                 child: InkResponse(
                   onTap: () {
                     Navigator.pushReplacementNamed(context, '/login');
@@ -33,7 +33,7 @@ class StudyCrm extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(right: 15),
+                padding: const EdgeInsets.only(right: 15),
                 child: InkResponse(
                   onTap: () {
                     Navigator.pushReplacementNamed(context, '/login');

@@ -9,35 +9,32 @@ class ResponsiveCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveGridRow( children: [
-              ResponsiveGridCol(
-      xs: 12,
-      md: 6,
-      lg: 3,
-      child:  cardList[0],
-    
-              ),
-              ResponsiveGridCol(
-      xs: 12,
-      md: 6,
-      lg: 3,
-      child:  cardList[1],
-    
-              ),
-              ResponsiveGridCol(
-      xs: 12,
-      md: 6,
-      lg: 3,
-      child:  cardList[2],
-    
-              ),
-              ResponsiveGridCol(
-      xs: 12,
-      md: 6,
-      lg: 3,
-      child:  cardList[3],
-              ),
-            ]
-    );
+    print("rebuild ResponsiveCards");
+    return ResponsiveGridRow(children: [
+      ResponsiveGridCol(
+        xs: 12,
+        md: 6,
+        lg: 3,
+        child: cardList[0],
+      ),
+      ResponsiveGridCol(
+        xs: 12,
+        md: 6,
+        lg: 3,
+        child: cardList[1],
+      ),
+      ResponsiveGridCol(
+        xs: 12,
+        md: 6,
+        lg: 3,
+        child: cardList[2],
+      ),
+      ResponsiveGridCol(
+        xs: 12,
+        md: 6,
+        lg: 3,
+        child: cardList[3],
+      ),
+    ]);
   }
 }

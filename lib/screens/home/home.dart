@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/screens/home/responsive_cards.dart';
-import 'package:srm_test/widgets/home_card.dart';
 import 'package:srm_test/resources/const.dart';
 
 class Home extends StatelessWidget {
@@ -11,21 +10,14 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     final sizeOfScreen = MediaQuery.of(context).size.width;
     print("rebuild Home");
-    if(sizeOfScreen > minDesktopSize + 167) {
-    return Padding(
-        padding: sizeOfScreen < minDesktopSize + 392
-            ? const EdgeInsets.only(top: 0)
-            : EdgeInsets.only(top: standartPadding),
-        child: ResponsiveCards());
-    }
-      else {
-            return SingleChildScrollView(
-      child:ResponsiveCards());
-    }
+    if (sizeOfScreen > minDesktopSize + 167) { // sm size
+      return Padding(
+          padding: sizeOfScreen < minDesktopSize + 392 // md size
+              ? const EdgeInsets.only(top: 0)
+              : EdgeInsets.only(top: standartPadding),
+          child: const ResponsiveCards());
+    } else {
+      return const SingleChildScrollView(child: ResponsiveCards());
     }
   }
-
-
-
-
-
+}

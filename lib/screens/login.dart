@@ -7,7 +7,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(body: LayoutBuilder(builder: (context, constraints) {
       return AnimatedContainer(
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           color: Colors.lightGreen[200],
           padding: constraints.maxWidth < 500
               ? EdgeInsets.zero
@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
             child: Container(
               padding:
                   const EdgeInsets.symmetric(vertical: 30.0, horizontal: 25.0),
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 maxWidth: 500,
               ),
               decoration: BoxDecoration(
@@ -26,14 +26,14 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Text("Welcome to the app, please log in"),
-                    TextField(
+                    const Text("Welcome to the app, please log in"),
+                    const TextField(
                         decoration: InputDecoration(labelText: "username")),
-                    TextField(
+                    const TextField(
                         obscureText: true,
                         decoration: InputDecoration(labelText: "password")),
                     ElevatedButton(
-                        child: Text("Log in",
+                        child: const Text("Log in",
                             style: TextStyle(color: Colors.white)),
                         onPressed: () {
                           Navigator.pushReplacementNamed(context, "/home");

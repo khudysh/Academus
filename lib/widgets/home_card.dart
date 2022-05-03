@@ -63,7 +63,7 @@ class HomeCard extends StatelessWidget {
                     color: Color(0xFFFCBF49),
                   )),
               Padding(
-                  padding: EdgeInsets.only(top: 15),
+                  padding: const EdgeInsets.only(top: 15),
                   child:Text(
                 describe,
                 textAlign: TextAlign.center,
