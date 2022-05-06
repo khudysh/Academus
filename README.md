@@ -1,16 +1,18 @@
-# srm_test
+![academus_logo2](https://user-images.githubusercontent.com/60621694/166657241-a17b48a9-ad81-47fb-8f4a-059dff563d00.png)
 
-A new Flutter project.
+# Academus – CRM system for educational institutions
 
-## Getting Started
+A Flutter project for managing an additional education training center with a fully adaptive UI for web, mobile and desktop computers.
 
-This project is a starting point for a Flutter application.
+![academus_logo2](https://user-images.githubusercontent.com/60621694/166664339-0567f92a-9f3a-429c-8d2f-bcc2d95fa213.svg)
 
-A few resources to get you started if this is your first Flutter project:
+## Main features
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- adding new students
+- scheduling
+- assigning students to groups
+- marking student attendance
+- determining class topics
+- grading for midterms
+- and other features..
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
