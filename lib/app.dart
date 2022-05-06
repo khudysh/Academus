@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:srm_test/widgets/leading.dart';
-import 'package:srm_test/controllers/switch_body.dart';
+import 'package:srm_test/controllers/app/switch_body.dart';
 import 'package:srm_test/widgets/navigation.dart';
 import 'package:srm_test/widgets/title.dart';
 import 'resources/const.dart';

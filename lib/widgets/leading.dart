@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:srm_test/controllers/switch_body.dart';
+import 'package:srm_test/controllers/app/switch_body.dart';
 
 class Leading extends StatelessWidget{
    const Leading({Key? key}) : super(key: key);

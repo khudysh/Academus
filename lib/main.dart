@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:srm_test/app.dart';
 import 'package:srm_test/resources/theme.dart';
-import 'package:srm_test/controllers/switch_body.dart';
+import 'package:srm_test/controllers/app/switch_body.dart';
 import 'package:srm_test/screens/login.dart';
 
 void main() {
@@ -58,7 +58,6 @@ class MainApp extends StatelessWidget {
             "/login": (context) {
               return const LoginScreen();
             },
-            
           }
           ),
     );

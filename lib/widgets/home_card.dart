@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../controllers/switch_body.dart';
+import '../controllers/app/switch_body.dart';
 
 class HomeCard extends StatelessWidget {
   final String title;
