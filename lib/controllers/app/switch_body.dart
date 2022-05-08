@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:srm_test/screens/groups.dart';
+import 'package:srm_test/screens/groups/groups.dart';
 import 'package:srm_test/screens/timetable.dart';
 import 'package:srm_test/screens/visitor_log.dart';
 import 'package:srm_test/screens/home/home.dart';
@@ -32,7 +32,7 @@ class CurrentScreen with ChangeNotifier {
         notifyListeners();
         break;
       case 3:
-        _currentScreen = const Groups();
+        _currentScreen = Groups();
         _currentScreenNum = 3;
         notifyListeners();
         break;

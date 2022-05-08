@@ -1,7 +1,8 @@
 class GroupData{
-    String title, day, time_interval, name, surname;
+    String title, day, time_interval, name, surname, id;
 
     GroupData({
+      this.id='null_id',
         this.day='null_day',
         this.title='null_title',
         this.time_interval='null_time_interval',
@@ -10,8 +11,9 @@ class GroupData{
     });
     //constructor
 
-    factory GroupData.fromJSON(Map<String, dynamic> json){
+    factory GroupData.fromJson(Map<String, dynamic> json){
         return GroupData(
+          id: json["id"],
            title: json["title"],
            day: json["day"],
            time_interval: json["time_interval"],
