@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:srm_test/models/groups/groups.model.dart';
-import 'package:srm_test/models/groups/groups_popup.model.dart';
+import 'package:srm_test/models/students/student.model.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:srm_test/resources/theme.dart';
-import 'package:srm_test/controllers/groups/group_controller.dart';
+import 'package:srm_test/controllers/students/students_controller.dart';
+import 'package:srm_test/models/students/student_popup.model.dart';
 
-class Groups extends StatelessWidget {
+class Students extends StatelessWidget {
   final HttpService httpService = HttpService();
 
   @override
@@ -15,32 +17,33 @@ class Groups extends StatelessWidget {
         alignment: Alignment.topCenter,
         //check if data is loaded, if loaded then show datalist on child
         child: FutureBuilder(
-          future: httpService.getPosts(),
-          builder:
-              (BuildContext context, AsyncSnapshot<List<GroupData>> snapshot) {
+          future: httpService.getStudents(),
+          builder: (BuildContext context,
+              AsyncSnapshot<List<StudentsData>> snapshot) {
+            print(snapshot);
             if (snapshot.hasData) {
-              List<GroupData> posts = snapshot.data!;
+              List<StudentsData> students = snapshot.data!;
               return ListView(
-                children: posts
+                children: students
                     .map(
-                      (GroupData post) => Card(
+                      (StudentsData student) => Card(
                         child: ListTile(
-                          title: Text(post.title),
-                          subtitle: Text(
-                              "${post.name} ${post.surname} \t${post.day} ${post.time_interval}\t"),
+                          title: Text("${student.name} ${student.surname}"),
+                          subtitle: Text("${student.title} "),
                           trailing: const Icon(Icons.info_outline),
                           onTap: () {
                             showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
                                   return FutureBuilder(
-                                    future: httpService.getPopup(post.id),
+                                    future: httpService.getPopup(student.id),
                                     builder: (BuildContext context,
-                                        AsyncSnapshot<List<GroupPopupData>>
-                                            snapshot) {
-                                      if (snapshot.hasData) {
-                                        List<GroupPopupData> posts =
-                                            snapshot.data!;
+                                        AsyncSnapshot<List<StudentPopupData>>
+                                            snapshot2) {
+                                      print(snapshot2);
+                                      if (snapshot2.hasData) {
+                                        List<StudentPopupData> studentsPopup =
+                                            snapshot2.data!;
                                         return AlertDialog(
                                           insetPadding: EdgeInsets.symmetric(
                                               horizontal: MediaQuery.of(context)
@@ -93,7 +96,7 @@ class Groups extends StatelessWidget {
                                                                           0.3)))),
                                                       child: Center(
                                                           child: Text(
-                                                              post.title,
+                                                              "${student.name} ${student.surname}",
                                                               style: TextStyle(
                                                                 color: CustomTheme
                                                                     .lightTheme
@@ -109,67 +112,46 @@ class Groups extends StatelessWidget {
                                                         padding: EdgeInsets.all(
                                                             20.0),
                                                         child: Container(
-
                                                           decoration: BoxDecoration(
                                                               border: Border.all(
                                                                   color: Colors
                                                                       .grey
                                                                       .withOpacity(
                                                                           0.2))),
-                                                          child: SingleChildScrollView (
+                                                          child:
+                                                              SingleChildScrollView(
                                                             child: Column(
-                                                              children: posts
-                                                                  .map(
-                                                                    (GroupPopupData
-                                                                            post) {
-
-                                                                        return Card(child: ListTile(
-                                                                      title: Text(
-                                                                          '${post.name} ${post.surname}')),
-                                                                    );},
-                                                                  )
-                                                                  .toList(),
+                                                              children:
+                                                                  studentsPopup
+                                                                      .map(
+                                                                (StudentPopupData
+                                                                    studentPopup) {
+                                                                  return Column(
+                                                                    children:[ Card(
+                                                                      child: ListTile(
+                                                                          title: Text(
+                                                                              'Имя родителя:'),
+                                                                              subtitle: Text(studentPopup.parent_name, style: TextStyle(fontSize: 18),)),
+                                                                    ),
+                                                                            Card(
+                                                                              child: ListTile(
+                                                                                                                                                    title: Text(
+                                                                              'Телефон родителя:'),
+                                                                              subtitle: Text(studentPopup.parent_phone, style: TextStyle(fontSize: 18),)),
+                                                                            ),
+                                                                            Card(
+                                                                              child: ListTile(
+                                                                                                                                                    title: Text(
+                                                                              'Дополнительная информация:'),
+                                                                              subtitle: Text(studentPopup.add_info, style: TextStyle(fontSize: 18),)),
+                                                                            ),
+                                                                    ]);
+                                                                },
+                                                              ).toList(),
                                                             ),
                                                           ),
                                                         )),
                                                   ]),
-                                              // Padding(
-                                              //   padding:
-                                              //       const EdgeInsets.all(20.0),
-                                              //   child: RaisedButton(
-                                              //     padding: EdgeInsets.zero,
-                                              //     child: Container(
-                                              //       width:
-                                              //           MediaQuery.of(context)
-                                              //               .size
-                                              //               .width,
-                                              //       height: 60,
-                                              //       decoration:
-                                              //           const BoxDecoration(
-                                              //               gradient: LinearGradient(
-                                              //                   begin: Alignment
-                                              //                       .topCenter,
-                                              //                   end: Alignment
-                                              //                       .bottomCenter,
-                                              //                   colors: [
-                                              //             Color(0xffc9880b),
-                                              //             Color(0xfff77f00),
-                                              //           ])),
-                                              //       child: const Center(
-                                              //           child: Text(
-                                              //         "Submit",
-                                              //         style: TextStyle(
-                                              //             color: Colors.white70,
-                                              //             fontSize: 20,
-                                              //             fontWeight:
-                                              //                 FontWeight.w800),
-                                              //       )),
-                                              //     ),
-                                              //     onPressed: () {
-                                              //       print("some pressed");
-                                              //     },
-                                              //   ),
-                                              // )
                                             ],
                                           ),
                                         );

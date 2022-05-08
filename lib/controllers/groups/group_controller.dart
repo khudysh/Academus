@@ -26,7 +26,7 @@ class HttpService {
     }
   }
 
-  Future<List<GroupPopupData>> getStudents(String id) async {
+  Future<List<GroupPopupData>> getPopup(String id) async {
     Response res = await post(Uri.parse(studentsURL), body: {'id':id});
 
     if (res.statusCode == 200) {

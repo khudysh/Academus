@@ -3,7 +3,7 @@ import 'package:srm_test/screens/groups/groups.dart';
 import 'package:srm_test/screens/timetable.dart';
 import 'package:srm_test/screens/visitor_log.dart';
 import 'package:srm_test/screens/home/home.dart';
-import 'package:srm_test/screens/students.dart';
+import 'package:srm_test/screens/students/students.dart';
 
 class CurrentScreen with ChangeNotifier {
   Widget _currentScreen = const Home();
@@ -37,7 +37,7 @@ class CurrentScreen with ChangeNotifier {
         notifyListeners();
         break;
       case 4:
-        _currentScreen = const Students();
+        _currentScreen = Students();
         _currentScreenNum = 4;
         notifyListeners();
         break;
