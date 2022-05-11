@@ -1,20 +1,24 @@
 // ignore_for_file: non_constant_identifier_names
 
 class AttendancePopupData {
-  String id, name, surname;
+  String id, attendance, lesson_date, topic, mark;
 
   AttendancePopupData({
     this.id = 'null_id',
-    this.name = 'null_name',
-    this.surname = 'null_surname',
+    this.attendance = 'null_attendance',
+    this.lesson_date = 'null_lesson_date',
+    this.topic = 'null_topic',
+    this.mark = 'null_mark',
   });
   //constructor
 
   factory AttendancePopupData.fromJSON(Map<String, dynamic> json) {
     return AttendancePopupData(
       id: json["id"],
-      name: json["name"],
-      surname: json["surname"],
+      attendance: json["attendance"],
+      lesson_date: json["lesson_date"],
+      topic: json["topic"],
+      mark: json["mark"],
     );
   }
 }
