@@ -15,7 +15,7 @@ class Groups extends StatelessWidget {
         alignment: Alignment.topCenter,
         //check if data is loaded, if loaded then show datalist on child
         child: FutureBuilder(
-          future: httpService.getPosts(),
+          future: httpService.getGroups(),
           builder:
               (BuildContext context, AsyncSnapshot<List<GroupData>> snapshot) {
             if (snapshot.hasData) {
@@ -109,26 +109,26 @@ class Groups extends StatelessWidget {
                                                         padding: EdgeInsets.all(
                                                             20.0),
                                                         child: Container(
-
                                                           decoration: BoxDecoration(
                                                               border: Border.all(
                                                                   color: Colors
                                                                       .grey
                                                                       .withOpacity(
                                                                           0.2))),
-                                                          child: SingleChildScrollView (
+                                                          child:
+                                                              SingleChildScrollView(
                                                             child: Column(
-                                                              children: posts
-                                                                  .map(
-                                                                    (GroupPopupData
-                                                                            post) {
-
-                                                                        return Card(child: ListTile(
-                                                                      title: Text(
-                                                                          '${post.name} ${post.surname}')),
-                                                                    );},
-                                                                  )
-                                                                  .toList(),
+                                                              children:
+                                                                  posts.map(
+                                                                (GroupPopupData
+                                                                    post) {
+                                                                  return Card(
+                                                                    child: ListTile(
+                                                                        title: Text(
+                                                                            '${post.name} ${post.surname}')),
+                                                                  );
+                                                                },
+                                                              ).toList(),
                                                             ),
                                                           ),
                                                         )),

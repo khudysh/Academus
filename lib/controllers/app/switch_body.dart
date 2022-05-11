@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/screens/groups/groups.dart';
 import 'package:srm_test/screens/timetable/timetable.dart';
-import 'package:srm_test/screens/visitor_log.dart';
+import 'package:srm_test/screens/attendance/attendance.dart';
 import 'package:srm_test/screens/home/home.dart';
 import 'package:srm_test/screens/students/students.dart';
 
@@ -27,7 +27,7 @@ class CurrentScreen with ChangeNotifier {
         notifyListeners();
         break;
       case 2:
-        _currentScreen = const VisitorLog();
+        _currentScreen = Attendance();
         _currentScreenNum = 2;
         notifyListeners();
         break;

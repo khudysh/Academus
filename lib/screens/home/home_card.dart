@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../controllers/app/switch_body.dart';
+import '../../controllers/app/switch_body.dart';
 
 class HomeCard extends StatelessWidget {
   final String title;
@@ -63,16 +63,16 @@ class HomeCard extends StatelessWidget {
                     color: Color(0xFFFCBF49),
                   )),
               Padding(
-                  padding: const EdgeInsets.only(top: 15),
-                  child:Text(
-                describe,
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    fontFamily: 'OpenSans'),
-              ),
+                padding: const EdgeInsets.only(top: 15),
+                child: Text(
+                  describe,
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'OpenSans'),
+                ),
               ),
             ],
           ),
