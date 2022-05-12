@@ -3,18 +3,17 @@ import 'package:srm_test/models/attendance/attendance_popup.model.dart';
 import 'package:srm_test/resources/theme.dart';
 
 class ShowDialog extends StatefulWidget {
-    final dynamic httpService;
+  final dynamic httpService;
   final dynamic student;
-    const ShowDialog({Key? key, required this.httpService, required this.student})
+  const ShowDialog({Key? key, required this.httpService, required this.student})
       : super(key: key);
-
 
   @override
   State<ShowDialog> createState() => _ShowDialogState(httpService, student);
 }
 
 class _ShowDialogState extends State<ShowDialog> {
-    final dynamic httpService;
+  final dynamic httpService;
   final dynamic student;
 
   _ShowDialogState(this.httpService, this.student);
@@ -155,8 +154,7 @@ class _ShowDialogState extends State<ShowDialog> {
                                         padding: const EdgeInsets.all(5),
                                         child: DropdownButton<String>(
                                           value: studentPopup.attendance,
-                                          icon:
-                                              Text(""),
+                                          icon: const Text(""),
                                           elevation: 16,
                                           style: const TextStyle(
                                               color: Colors.red),

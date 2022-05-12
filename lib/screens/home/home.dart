@@ -10,7 +10,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     final sizeOfScreen = MediaQuery.of(context).size.width;
     print("rebuild Home");
-    if (sizeOfScreen > minDesktopSize + 167) { // sm size
+    if (sizeOfScreen > minDesktopSize + 167) {
+      // sm size
       return Padding(
           padding: sizeOfScreen < minDesktopSize + 392 // md size
               ? const EdgeInsets.only(top: 0)

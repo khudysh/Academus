@@ -5,7 +5,8 @@ import 'package:srm_test/models/students/student_popup.model.dart';
 
 class HttpService {
   final String studentsURL = "http://94.103.188.48/test/students.php";
-  final String studentsPopupURL = "http://94.103.188.48/test/students_popup.php";
+  final String studentsPopupURL =
+      "http://94.103.188.48/test/students_popup.php";
 
   Future<List<StudentsData>> getStudents() async {
     Response res = await get(Uri.parse(studentsURL));
@@ -26,7 +27,7 @@ class HttpService {
   }
 
   Future<List<StudentPopupData>> getPopup(String id) async {
-    Response res = await post(Uri.parse(studentsPopupURL), body: {'id':id});
+    Response res = await post(Uri.parse(studentsPopupURL), body: {'id': id});
 
     if (res.statusCode == 200) {
       var body = jsonDecode(res.body);

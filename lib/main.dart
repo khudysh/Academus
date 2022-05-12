@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:srm_test/app.dart';
 import 'package:srm_test/resources/theme.dart';
 import 'package:srm_test/controllers/app/switch_body.dart';
-import 'package:srm_test/screens/login.dart';
+import 'package:srm_test/screens/login/login.dart';
 import 'package:srm_test/screens/profile/profile.dart';
 
 void main() {
@@ -57,13 +57,12 @@ class MainApp extends StatelessWidget {
               return const StudyCrm();
             },
             "/login": (context) {
-              return LoginScreen();
+              return const LoginScreen();
             },
-             "/profile": (context) {
+            "/profile": (context) {
               return ProfileScreen();
             },
-          }
-          ),
+          }),
     );
   }
 }

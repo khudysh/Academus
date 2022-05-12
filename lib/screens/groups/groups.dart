@@ -34,7 +34,10 @@ class Groups extends StatelessWidget {
                             showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
-                                  return  ShowDialog(httpService: httpService,post: post,);
+                                  return ShowDialog(
+                                    httpService: httpService,
+                                    post: post,
+                                  );
                                 });
                           },
                         ),

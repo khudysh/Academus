@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 const _primaryColor = Color(0xFFd62828);
 
 class CustomTheme {
-  static ThemeData get lightTheme { //1
-    return ThemeData( //2
-    fontFamily: 'OpenSans',
-      primaryColor: _primaryColor,
-      backgroundColor: Colors.white,
+  static ThemeData get lightTheme {
+    //1
+    return ThemeData(
+        //2
+        fontFamily: 'OpenSans',
+        primaryColor: _primaryColor,
+        backgroundColor: Colors.white,
         highlightColor: Colors.transparent,
         colorScheme: const ColorScheme(
           primary: _primaryColor,
@@ -27,20 +29,19 @@ class CustomTheme {
         dividerTheme: const DividerThemeData(
           thickness: 1,
           color: Color(0xFFE5E5E5),
-      )
-    );
+        ));
   }
 
   static ThemeData get darkTheme {
-  return ThemeData(
-    primaryColor: const Color.fromARGB(255, 155, 155, 155),
-    scaffoldBackgroundColor: Colors.black,
-    fontFamily: 'OpenSans',
-    textTheme: ThemeData.dark().textTheme,
-    buttonTheme: ButtonThemeData(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-      buttonColor: const Color.fromARGB(255, 154, 93, 165),
-    )
-  );
-}
+    return ThemeData(
+        primaryColor: const Color.fromARGB(255, 155, 155, 155),
+        scaffoldBackgroundColor: Colors.black,
+        fontFamily: 'OpenSans',
+        textTheme: ThemeData.dark().textTheme,
+        buttonTheme: ButtonThemeData(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+          buttonColor: const Color.fromARGB(255, 154, 93, 165),
+        ));
+  }
 }

@@ -53,10 +53,11 @@ class HttpService {
     if (res.statusCode == 200) {
       var body = jsonDecode(res.body);
 
-      List<AttendancePopupData> attends =
-          body['data'].map<AttendancePopupData>(
+      List<AttendancePopupData> attends = body['data'].map<AttendancePopupData>(
         (dynamic item) {
-          item['attendance']=='1' ? item['attendance']='✅' : item['attendance']='❌';
+          item['attendance'] == '1'
+              ? item['attendance'] = '✅'
+              : item['attendance'] = '❌';
           return AttendancePopupData.fromJSON(item);
         },
       ).toList();

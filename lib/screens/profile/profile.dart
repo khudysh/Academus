@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:srm_test/controllers/app/switch_body.dart';
 import 'package:srm_test/models/users/user.dart';
 import 'package:srm_test/controllers/profile/profile_controller.dart';
+
 class ProfileScreen extends StatelessWidget {
   final HttpService httpService = HttpService();
   ProfileScreen({Key? key}) : super(key: key);
@@ -35,12 +36,14 @@ class ProfileScreen extends StatelessWidget {
                       radius: 75,
                       backgroundColor: Colors.red,
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage('http://94.103.188.48/test/img/lambda.png'),
+                        backgroundImage: NetworkImage(
+                            'http://94.103.188.48/test/img/lambda.png'),
                         radius: 70,
                       ),
                     ),
                     FutureBuilder(
-                      future: httpService.getUserData(context.watch<CurrentScreen>().getUserId),
+                      future: httpService.getUserData(
+                          context.watch<CurrentScreen>().getUserId),
                       builder: (BuildContext context,
                           AsyncSnapshot<List<UserData>> snapshot) {
                         if (snapshot.hasData) {
@@ -50,7 +53,8 @@ class ProfileScreen extends StatelessWidget {
                               shrinkWrap: true,
                               children: userdatas.map((UserData user) {
                                 return Column(children: [
-                                  Card(color: Colors.grey[50],
+                                  Card(
+                                    color: Colors.grey[50],
                                     child: ListTile(
                                         title: const Text('Логин:'),
                                         subtitle: Text(
@@ -66,10 +70,10 @@ class ProfileScreen extends StatelessWidget {
                                           style: const TextStyle(fontSize: 18),
                                         )),
                                   ),
-                                  Card(color: Colors.grey[50],
+                                  Card(
+                                    color: Colors.grey[50],
                                     child: ListTile(
-                                        title: const Text(
-                                            'Телефон:'),
+                                        title: const Text('Телефон:'),
                                         subtitle: Text(
                                           user.phone!,
                                           style: const TextStyle(fontSize: 18),
@@ -86,7 +90,7 @@ class ProfileScreen extends StatelessWidget {
                       },
                     ),
                     ElevatedButton(
-                        child: const Text("Go back",
+                        child: const Text("Назад",
                             style: TextStyle(color: Colors.white)),
                         onPressed: () {
                           Navigator.pushReplacementNamed(context, "/home");
