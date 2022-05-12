@@ -27,8 +27,8 @@ class ShowDialog extends StatelessWidget {
               clipBehavior: Clip.none,
               children: <Widget>[
                 Positioned(
-                  right: -15.0,
-                  top: -15.0,
+                  right: -20.0,
+                  top: -20.0,
                   child: InkResponse(
                     onTap: () {
                       Navigator.of(context).pop();
