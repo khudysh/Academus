@@ -57,14 +57,14 @@ class _LoginScreen extends State<LoginScreen>{
             }else{
                showprogress = false; //don't show progress indicator
                error = true;
-               errormsg = "Something went wrong.";
+               errormsg = "Что-то пошло не так.";
             }  
          }
      }else{
         setState(() {
            showprogress = false; //don't show progress indicator
            error = true;
-           errormsg = "Error during connecting to server.";
+           errormsg = "Ошибка при попытке подключиться к серверу.";
         });
      }
   }
@@ -102,87 +102,90 @@ class _LoginScreen extends State<LoginScreen>{
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5.0),
               ),
-              child: Column(
-                  //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                        margin: EdgeInsets.only(top:80),
-                        child: Text("Sign Into System", style: TextStyle( 
-                            color:Colors.grey[900],fontSize: 40, fontWeight: FontWeight.bold
-                        ),), //title text
-                     ),
-
-                     Container(
-                        child: Text("Sign In using Login and Password", style: TextStyle( 
-                            color:Colors.grey[900],fontSize: 15
-                        ),), //subtitle text
-                     ),
-                    Container( 
-                         //show error message here
-                         margin: EdgeInsets.only(top:150),
-                         padding: EdgeInsets.all(10),
-                         child:error? errmsg(errormsg):Container(),
-                         //if error == true then show error message
-                         //else set empty container as child
-                     ),
-                    Container( 
-                        padding: EdgeInsets.fromLTRB(10,0,10,0),
-                        margin: EdgeInsets.only(top:50),
-                        child: TextField(
-                          controller: _username, //set username controller
-                          style:TextStyle(color:Colors.grey[800], fontSize:20),
-                          decoration: myInputDecoration(
-                              label: "Username",
-                              icon: Icons.person,
+              child: SingleChildScrollView(
+                reverse: true,
+                child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                          margin: EdgeInsets.only(top:80),
+                          child: Text("Вход в систему", style: TextStyle( 
+                              color:Colors.grey[900],fontSize: 40, fontWeight: FontWeight.bold
+                          ),), //title text
+                       ),
+              
+                       Container(
+                          child: Text("Войдите используя пароль и логин", style: TextStyle( 
+                              color:Colors.grey[900],fontSize: 15
+                          ),), //subtitle text
+                       ),
+                      Container( 
+                           //show error message here
+                           margin: EdgeInsets.only(top:150),
+                           padding: EdgeInsets.all(10),
+                           child:error? errmsg(errormsg):Container(),
+                           //if error == true then show error message
+                           //else set empty container as child
+                       ),
+                      Container( 
+                          padding: EdgeInsets.fromLTRB(10,0,10,0),
+                          margin: EdgeInsets.only(top:50),
+                          child: TextField(
+                            controller: _username, //set username controller
+                            style:TextStyle(color:Colors.grey[800], fontSize:20),
+                            decoration: myInputDecoration(
+                                label: "Логин",
+                                icon: Icons.person,
+                            ),
+                             onChanged: (value){
+                              //set username  text on change
+                               username = value;
+                            },
+                              
                           ),
-                           onChanged: (value){
-                            //set username  text on change
-                             username = value;
-                          },
-                            
-                        ),
-                     ),
-
-                     Container( 
-                       margin: EdgeInsets.only(top:20),
-                        padding: EdgeInsets.all(10),
-                        child: TextField(
-                          controller: _password, //set password controller
-                          style: TextStyle(color:Colors.grey[800], fontSize:20),
-                          obscureText: true,
-                          decoration: myInputDecoration(
-                              label: "Password",
-                              icon: Icons.lock,
+                       ),
+              
+                       Container( 
+                         margin: EdgeInsets.only(top:20),
+                          padding: EdgeInsets.all(10),
+                          child: TextField(
+                            controller: _password, //set password controller
+                            style: TextStyle(color:Colors.grey[800], fontSize:20),
+                            obscureText: true,
+                            decoration: myInputDecoration(
+                                label: "Пароль",
+                                icon: Icons.lock,
+                            ),
+                            onChanged: (value){
+                               // change password text
+                               password = value;
+                            },
+                              
                           ),
-                          onChanged: (value){
-                             // change password text
-                             password = value;
-                          },
-                            
-                        ),
-                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 100),
-                      child: ElevatedButton(
-                          child: showprogress? 
-                                         SizedBox( 
-                                           height:30, width:30,
-                                           child: CircularProgressIndicator(
-                                             backgroundColor: Colors.orange[100],
-                                             valueColor: AlwaysStoppedAnimation<Color>(Colors.deepOrangeAccent),
-                                           ),
-                                         ):Text("Login now", style: TextStyle(fontSize: 20),),
-                                         // if showprogress == true then show progress indicator 
-                                         // else show "LOGIN NOW" text
-                          onPressed: () {
-                            setState(() {
-                                          //show progress indicator on click
-                                          showprogress = true;
-                                       });
-                                       startLogin();
-                          }),
-                    )
-                  ]),
+                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 100),
+                        child: ElevatedButton(
+                            child: showprogress? 
+                                           SizedBox( 
+                                             height:30, width:30,
+                                             child: CircularProgressIndicator(
+                                               backgroundColor: Colors.orange[100],
+                                               valueColor: AlwaysStoppedAnimation<Color>(Colors.deepOrangeAccent),
+                                             ),
+                                           ):Text("Войти", style: TextStyle(fontSize: 20),),
+                                           // if showprogress == true then show progress indicator 
+                                           // else show "LOGIN NOW" text
+                            onPressed: () {
+                              setState(() {
+                                            //show progress indicator on click
+                                            showprogress = true;
+                                         });
+                                         startLogin();
+                            }),
+                      )
+                    ]),
+              ),
             ),
           ));
     }));
