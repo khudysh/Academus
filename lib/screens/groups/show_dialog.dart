@@ -1,10 +1,11 @@
+
 import 'package:flutter/material.dart';
 import 'package:srm_test/models/groups/groups_popup.model.dart';
 import 'package:srm_test/resources/theme.dart';
 
 class ShowDialog extends StatelessWidget{
-  final httpService;
-  final post;
+  final dynamic httpService;
+  final dynamic post;
   //final builder;
 
   const ShowDialog({Key? key,required this.httpService, required this.post}) : super(key: key);
@@ -84,7 +85,7 @@ return FutureBuilder(
                                                               ))),
                                                     ),
                                                     Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             20.0),
                                                         child: Container(
                                                           decoration: BoxDecoration(
@@ -115,7 +116,7 @@ return FutureBuilder(
                                           ),
                                         );
                                       } else {
-                                        return Center(
+                                        return const Center(
                                             child: CircularProgressIndicator());
                                       }
                                     },

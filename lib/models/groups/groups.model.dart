@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 class GroupData{
     String title, day, time_interval, name, surname, id;
 

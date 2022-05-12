@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/models/students/student.model.dart';
-import 'package:srm_test/screens/students/showDialog.dart';
+import 'package:srm_test/screens/students/show_dialog.dart';
 import 'package:srm_test/controllers/students/students_controller.dart';
 
 
 class Students extends StatelessWidget {
   final HttpService httpService = HttpService();
+
+  Students({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class Students extends StatelessWidget {
                     .toList(),
               );
             } else {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),

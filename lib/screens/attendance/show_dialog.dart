@@ -3,8 +3,8 @@ import 'package:srm_test/models/attendance/attendance_popup.model.dart';
 import 'package:srm_test/resources/theme.dart';
 
 class ShowDialog extends StatelessWidget{
-  final httpService;
-  final student;
+  final dynamic httpService;
+  final dynamic student;
   //final builder;
 
   const ShowDialog({Key? key,required this.httpService, required this.student}) : super(key: key);
@@ -17,7 +17,6 @@ class ShowDialog extends StatelessWidget{
                                       builder: (BuildContext context,
                                           AsyncSnapshot<List<AttendancePopupData>>
                                               snapshot2) {
-                                        print(snapshot2);
                                         if (snapshot2.hasData) {
                                           List<AttendancePopupData> studentsPopup =
                                               snapshot2.data!;
@@ -86,7 +85,7 @@ class ShowDialog extends StatelessWidget{
                                                                 ))),
                                                       ),
                                                       Padding(
-                                                          padding: EdgeInsets.all(
+                                                          padding: const EdgeInsets.all(
                                                               20.0),
                                                           child: Container(
                                                             decoration: BoxDecoration(
@@ -107,26 +106,26 @@ class ShowDialog extends StatelessWidget{
                                                                         children: [
                                                                           Card(
                                                                             child: ListTile(
-                                                                                title: Text('Имя родителя:'),
+                                                                                title: const Text('Имя родителя:'),
                                                                                 subtitle: Text(
                                                                                   studentPopup.attendance,
-                                                                                  style: TextStyle(fontSize: 18),
+                                                                                  style: const TextStyle(fontSize: 18),
                                                                                 )),
                                                                           ),
                                                                           Card(
                                                                             child: ListTile(
-                                                                                title: Text('Телефон родителя:'),
+                                                                                title: const Text('Телефон родителя:'),
                                                                                 subtitle: Text(
                                                                                   studentPopup.mark,
-                                                                                  style: TextStyle(fontSize: 18),
+                                                                                  style: const TextStyle(fontSize: 18),
                                                                                 )),
                                                                           ),
                                                                           Card(
                                                                             child: ListTile(
-                                                                                title: Text('Дополнительная информация:'),
+                                                                                title: const Text('Дополнительная информация:'),
                                                                                 subtitle: Text(
                                                                                   studentPopup.lesson_date,
-                                                                                  style: TextStyle(fontSize: 18),
+                                                                                  style: const TextStyle(fontSize: 18),
                                                                                 )),
                                                                           ),
                                                                         ]);
@@ -140,7 +139,7 @@ class ShowDialog extends StatelessWidget{
                                             ),
                                           );
                                         } else {
-                                          return Center(
+                                          return const Center(
                                               child: CircularProgressIndicator());
                                         }
                                       },

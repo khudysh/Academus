@@ -15,7 +15,6 @@ class HttpService {
 
       List<GroupData> groups = body['data'].map<GroupData>(
         (dynamic item) {
-          print(item);
           return GroupData.fromJson(item);
         },
       ).toList();
@@ -34,7 +33,6 @@ class HttpService {
 
       List<GroupPopupData> students = body['data'].map<GroupPopupData>(
         (dynamic item) {
-          print(item);
           return GroupPopupData.fromJson(item);
         },
       ).toList();

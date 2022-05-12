@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:srm_test/models/groups/groups.model.dart';
-import 'package:srm_test/screens/groups/showDialog.dart';
-import 'package:srm_test/resources/theme.dart';
+import 'package:srm_test/screens/groups/show_dialog.dart';
 import 'package:srm_test/controllers/groups/group_controller.dart';
 
 class Groups extends StatelessWidget {
   final HttpService httpService = HttpService();
+
+  Groups({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class Groups extends StatelessWidget {
                     .toList(),
               );
             } else {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),

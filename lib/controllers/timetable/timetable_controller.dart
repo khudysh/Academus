@@ -14,7 +14,6 @@ class HttpService {
 
       List<TimeTableData> timetable = body['data'].map<TimeTableData>(
         (dynamic item) {
-          print(item);
           return TimeTableData.fromJson(item);
         },
       ).toList();

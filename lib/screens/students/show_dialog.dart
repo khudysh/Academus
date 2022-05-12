@@ -3,8 +3,8 @@ import 'package:srm_test/models/students/student_popup.model.dart';
 import 'package:srm_test/resources/theme.dart';
 
 class ShowDialog extends StatelessWidget{
-  final httpService;
-  final student;
+  final dynamic httpService;
+  final dynamic student;
   //final builder;
 
   const ShowDialog({Key? key,required this.httpService, required this.student}) : super(key: key);
@@ -16,7 +16,6 @@ return FutureBuilder(
                                     builder: (BuildContext context,
                                         AsyncSnapshot<List<StudentPopupData>>
                                             snapshot2) {
-                                      print(snapshot2);
                                       if (snapshot2.hasData) {
                                         List<StudentPopupData> studentsPopup =
                                             snapshot2.data!;
@@ -85,7 +84,7 @@ return FutureBuilder(
                                                               ))),
                                                     ),
                                                     Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             20.0),
                                                         child: Container(
                                                           decoration: BoxDecoration(
@@ -105,21 +104,21 @@ return FutureBuilder(
                                                                   return Column(
                                                                     children:[ Card(
                                                                       child: ListTile(
-                                                                          title: Text(
+                                                                          title: const Text(
                                                                               'Имя родителя:'),
-                                                                              subtitle: Text(studentPopup.parent_name, style: TextStyle(fontSize: 18),)),
+                                                                              subtitle: Text(studentPopup.parent_name, style: const TextStyle(fontSize: 18),)),
                                                                     ),
                                                                             Card(
                                                                               child: ListTile(
-                                                                                                                                                    title: Text(
+                                                                                                                                                    title: const Text(
                                                                               'Телефон родителя:'),
-                                                                              subtitle: Text(studentPopup.parent_phone, style: TextStyle(fontSize: 18),)),
+                                                                              subtitle: Text(studentPopup.parent_phone, style: const TextStyle(fontSize: 18),)),
                                                                             ),
                                                                             Card(
                                                                               child: ListTile(
-                                                                                                                                                    title: Text(
+                                                                                                                                                    title: const Text(
                                                                               'Дополнительная информация:'),
-                                                                              subtitle: Text(studentPopup.add_info, style: TextStyle(fontSize: 18),)),
+                                                                              subtitle: Text(studentPopup.add_info, style: const TextStyle(fontSize: 18),)),
                                                                             ),
                                                                     ]);
                                                                 },
@@ -132,7 +131,7 @@ return FutureBuilder(
                                           ),
                                         );
                                       } else {
-                                        return Center(
+                                        return const Center(
                                             child: CircularProgressIndicator());
                                       }
                                     },

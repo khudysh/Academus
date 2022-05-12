@@ -6,6 +6,8 @@ import 'package:srm_test/controllers/timetable/timetable_controller.dart';
 class TimeTable extends StatelessWidget {
   final HttpService httpService = HttpService();
 
+  TimeTable({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -89,31 +91,31 @@ class TimeTable extends StatelessWidget {
                           TableCell(
                               child: Center(
                             child: Padding(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 child: Text(unit.title)),
                           )),
                           TableCell(
                               child: Center(
                             child: Padding(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 child: Text(unit.name + ' ' + unit.surname)),
                           )),
                           TableCell(
                               child: Center(
                             child: Padding(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 child: Text(unit.day)),
                           )),
                           TableCell(
                               child: Center(
                             child: Padding(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 child: Text(unit.time_interval)),
                           )),
                           TableCell(
                               child: Center(
                             child: Padding(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 child: Text(unit.auditorium)),
                           )),
                         ]);
@@ -121,7 +123,7 @@ class TimeTable extends StatelessWidget {
                     ).toList(),
                   );
                 } else {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }
               },
             ),

@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:srm_test/models/attendance/attendance.model.dart';
 import 'package:srm_test/controllers/attendance/attendance_controller.dart';
 import 'package:srm_test/models/attendance/attendance_expand.model.dart';
-import 'package:srm_test/screens/attendance/showDialog.dart';
+import 'package:srm_test/screens/attendance/show_dialog.dart';
 
 Widget exppansionStudents(HttpService httpService, String id) {
   return FutureBuilder(
     future: httpService.getStudents(id),
     builder: (BuildContext context,
         AsyncSnapshot<List<AttendanceStudentsData>> snapshot) {
-      print(snapshot);
       if (snapshot.hasData) {
         List<AttendanceStudentsData> students = snapshot.data!;
         return ListView(
@@ -28,7 +27,7 @@ Widget exppansionStudents(HttpService httpService, String id) {
               .toList(),
         );
       } else {
-        return Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       }
     },
   );
@@ -36,6 +35,8 @@ Widget exppansionStudents(HttpService httpService, String id) {
 
 class Attendance extends StatelessWidget {
   final HttpService httpService = HttpService();
+
+  Attendance({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class Attendance extends StatelessWidget {
           future: httpService.getGroups(),
           builder: (BuildContext context,
               AsyncSnapshot<List<AttendanceGroupsData>> snapshot) {
-            print(snapshot);
+
             if (snapshot.hasData) {
               List<AttendanceGroupsData> groups = snapshot.data!;
               return ListView(
@@ -67,7 +68,6 @@ class Attendance extends StatelessWidget {
                                 builder: (BuildContext context,
                                     AsyncSnapshot<List<AttendanceStudentsData>>
                                         snapshot) {
-                                  print(snapshot);
                                   if (snapshot.hasData) {
                                     List<AttendanceStudentsData> students =
                                         snapshot.data!;
@@ -77,7 +77,7 @@ class Attendance extends StatelessWidget {
                                           .map(
                                             (AttendanceStudentsData student) =>
                                                 Card(
-                                              color: Color.fromARGB(
+                                              color: const Color.fromARGB(
                                                   235, 255, 255, 255),
                                               child: ListView(
                                                 shrinkWrap: true,
@@ -98,7 +98,7 @@ class Attendance extends StatelessWidget {
                                           .toList(),
                                     );
                                   } else {
-                                    return Center(
+                                    return const Center(
                                         child: CircularProgressIndicator());
                                   }
                                 },
@@ -111,7 +111,7 @@ class Attendance extends StatelessWidget {
                     .toList(),
               );
             } else {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             }
           },
         ),
