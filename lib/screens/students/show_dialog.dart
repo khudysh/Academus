@@ -24,7 +24,7 @@ return FutureBuilder(
                                               horizontal: MediaQuery.of(context)
                                                       .size
                                                       .width /
-                                                  6,
+                                                  8,
                                               vertical: 24),
                                           contentPadding: EdgeInsets.zero,
                                           content: Stack(

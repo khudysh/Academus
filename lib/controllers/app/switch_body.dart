@@ -8,9 +8,11 @@ import 'package:srm_test/screens/students/students.dart';
 class CurrentScreen with ChangeNotifier {
   Widget _currentScreen = const Home();
   int _currentScreenNum = 0;
+  String _userId = '';
 
   Widget get getCurrentScreen => _currentScreen;
   int get getCurrentScreenNum => _currentScreenNum;
+  String get getUserId => _userId;
 
   void switchBody(int selectedIndex) {
     print("switch to screen #$selectedIndex ");
@@ -47,5 +49,9 @@ class CurrentScreen with ChangeNotifier {
         notifyListeners();
         break;
     }
+  }
+
+  void saveUser(String userId) {
+    _userId = userId;
   }
 }

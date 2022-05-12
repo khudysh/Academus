@@ -24,7 +24,7 @@ class StudyCrm extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 15),
                 child: InkResponse(
                   onTap: () {
-                    Navigator.pushReplacementNamed(context, '/login');
+                    Navigator.pushReplacementNamed(context, '/profile');
                   },
                   child: const Icon(
                     Icons.account_circle_sharp,

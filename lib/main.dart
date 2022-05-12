@@ -4,6 +4,7 @@ import 'package:srm_test/app.dart';
 import 'package:srm_test/resources/theme.dart';
 import 'package:srm_test/controllers/app/switch_body.dart';
 import 'package:srm_test/screens/login.dart';
+import 'package:srm_test/screens/profile/profile.dart';
 
 void main() {
   runApp(const MainApp());
@@ -23,7 +24,7 @@ class MainApp extends StatelessWidget {
           home: const StudyCrm(),
           debugShowCheckedModeBanner: false,
           theme: CustomTheme.lightTheme,
-          initialRoute: "/home",
+          initialRoute: "/login",
           routes: {
             "/home": (context) {
               Future.delayed(Duration.zero, () {
@@ -56,7 +57,10 @@ class MainApp extends StatelessWidget {
               return const StudyCrm();
             },
             "/login": (context) {
-              return const LoginScreen();
+              return LoginScreen();
+            },
+             "/profile": (context) {
+              return ProfileScreen();
             },
           }
           ),

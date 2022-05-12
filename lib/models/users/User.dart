@@ -1,20 +1,26 @@
-class NameOne{
-    String? id, name, address, phone;
+// ignore_for_file: non_constant_identifier_names
 
-    NameOne({
+class UserData{
+    String? id, username, name, surname, phone, stuff_id;
+
+    UserData({
         this.id,
+        this.username,
         this.name,
-        this.address,
-        this.phone
+        this.surname,
+        this.phone,
+        this.stuff_id
     });
     //constructor
 
-    factory NameOne.fromJSON(Map<String, dynamic> json){
-        return NameOne( 
+    factory UserData.fromJSON(Map<String, dynamic> json){
+        return UserData(
            id: json["id"],
+           username: json["username"],
            name: json["name"],
-           address: json["address"],
-           phone: json["phone"]
+           surname: json["surname"],
+           phone: json["phone"],
+           stuff_id: json["stuff_id"],
         );
     }
 }
