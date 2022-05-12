@@ -48,7 +48,7 @@ class HttpService {
   }
 
   Future<List<AttendancePopupData>> getAttendance(String id) async {
-    Response res = await post(Uri.parse(studentsURL), body: {'id': id});
+    Response res = await post(Uri.parse(attendanceURL), body: {'id': id});
 
     if (res.statusCode == 200) {
       var body = jsonDecode(res.body);
@@ -56,6 +56,7 @@ class HttpService {
       List<AttendancePopupData> attends =
           body['data'].map<AttendancePopupData>(
         (dynamic item) {
+          item['attendance']=='1' ? item['attendance']='✅' : item['attendance']='❌';
           return AttendancePopupData.fromJSON(item);
         },
       ).toList();
