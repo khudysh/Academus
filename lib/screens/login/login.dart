@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:srm_test/controllers/app/switch_body.dart';
+import 'package:srm_test/screens/login/login_errmsg.dart';
+import 'package:srm_test/screens/login/login_input_decoration.dart';
 //import http package manually
 
 class LoginScreen extends StatefulWidget {
@@ -127,7 +129,7 @@ class _LoginScreen extends State<LoginScreen> {
                         //show error message here
                         margin: const EdgeInsets.only(top: 150),
                         padding: const EdgeInsets.all(10),
-                        child: error ? errmsg(errormsg) : Container(),
+                        child: error ? ErrMsg(text: errormsg) : Container(),
                         //if error == true then show error message
                         //else set empty container as child
                       ),
@@ -138,7 +140,7 @@ class _LoginScreen extends State<LoginScreen> {
                           controller: _username, //set username controller
                           style:
                               TextStyle(color: Colors.grey[800], fontSize: 20),
-                          decoration: myInputDecoration(
+                          decoration: InputDecorationLogin.myInputDecoration(
                             label: "Логин",
                             icon: Icons.person,
                           ),
@@ -156,7 +158,7 @@ class _LoginScreen extends State<LoginScreen> {
                           style:
                               TextStyle(color: Colors.grey[800], fontSize: 20),
                           obscureText: true,
-                          decoration: myInputDecoration(
+                          decoration: InputDecorationLogin.myInputDecoration(
                             label: "Пароль",
                             icon: Icons.lock,
                           ),
@@ -201,56 +203,7 @@ class _LoginScreen extends State<LoginScreen> {
     }));
   }
 
-  InputDecoration myInputDecoration({String? label, IconData? icon}) {
-    return InputDecoration(
-      hintText: label, //show label as placeholder
-      hintStyle:
-          TextStyle(color: Colors.red[300], fontSize: 20), //hint text style
-      prefixIcon: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 10),
-          child: Icon(
-            icon,
-            color: Colors.red[500],
-          )
-          //padding and icon for prefix
-          ),
 
-      contentPadding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
-      enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide: BorderSide(
-              color: Colors.red[300]!, width: 1)), //default border of input
 
-      focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-          borderSide:
-              BorderSide(color: Colors.red[200]!, width: 1)), //focus border
 
-      fillColor: const Color.fromARGB(126, 255, 255, 255),
-      filled: true, //set true if you want to show input background
-    );
-  }
-
-  Widget errmsg(String text) {
-    //error message widget.
-    return Container(
-      padding: const EdgeInsets.all(15.00),
-      margin: const EdgeInsets.only(bottom: 10.00),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          color: Colors.red,
-          border: Border.all(color: Colors.red[300]!, width: 2)),
-      child: Row(children: <Widget>[
-        Container(
-          margin: const EdgeInsets.only(right: 6.00),
-          child: const Icon(Icons.info, color: Colors.white),
-        ), // icon for error message
-
-        Text(text,
-            style: const TextStyle(color: Colors.white, fontSize: 18),
-            overflow: TextOverflow.clip),
-        //show error message text
-      ]),
-    );
-  }
 }
