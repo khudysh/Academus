@@ -20,7 +20,7 @@ class MainApp extends StatelessWidget {
     return ChangeNotifierProvider<CurrentScreen>(
       create: (context) => CurrentScreen(),
       child: MaterialApp(
-          title: "Eugene",
+          title: "Academus",
           home: const StudyCrm(),
           debugShowCheckedModeBanner: false,
           theme: CustomTheme.lightTheme,
