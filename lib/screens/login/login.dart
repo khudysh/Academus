@@ -52,7 +52,8 @@ class _LoginScreen extends State<LoginScreen> {
             error = false;
             showprogress = false;
             context.read<CurrentScreen>().saveUser(id);
-            Navigator.pushReplacementNamed(context, '/home');
+           Navigator.of(context)
+    .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
           });
           //save the data returned from server
           //and navigate to home page
