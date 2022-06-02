@@ -2,7 +2,7 @@
     package="com.example.srm_test">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="srm_test"
+        android:label="Academus"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
