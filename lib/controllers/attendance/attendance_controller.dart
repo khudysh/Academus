@@ -5,9 +5,9 @@ import 'package:srm_test/models/attendance/attendance_expand.model.dart';
 import 'package:srm_test/models/attendance/attendance_popup.model.dart';
 
 class HttpService {
-  final String groupsURL = "http://94.103.188.48/test/groups.php";
-  final String studentsURL = "http://94.103.188.48/test/groups_popup.php";
-  final String attendanceURL = "http://94.103.188.48/test/attendance_popup.php";
+  final String groupsURL = "http://94.103.188.48:50/groups.php";
+  final String studentsURL = "http://94.103.188.48:50/groups_popup.php";
+  final String attendanceURL = "http://94.103.188.48:50/attendance_popup.php";
 
   Future<List<AttendanceGroupsData>> getGroups() async {
     Response res = await get(Uri.parse(groupsURL));

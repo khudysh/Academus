@@ -4,9 +4,9 @@ import 'package:srm_test/models/students/student.model.dart';
 import 'package:srm_test/models/students/student_popup.model.dart';
 
 class HttpService {
-  final String studentsURL = "http://94.103.188.48/test/students.php";
+  final String studentsURL = "http://94.103.188.48:50/students.php";
   final String studentsPopupURL =
-      "http://94.103.188.48/test/students_popup.php";
+      "http://94.103.188.48:50/students_popup.php";
 
   Future<List<StudentsData>> getStudents() async {
     Response res = await get(Uri.parse(studentsURL));

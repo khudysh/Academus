@@ -4,8 +4,8 @@ import 'package:srm_test/models/groups/groups.model.dart';
 import 'package:srm_test/models/groups/groups_popup.model.dart';
 
 class HttpService {
-  final String groupsURL = "http://94.103.188.48/test/groups.php";
-  final String studentsURL = "http://94.103.188.48/test/groups_popup.php";
+  final String groupsURL = "http://94.103.188.48:50/groups.php";
+  final String studentsURL = "http://94.103.188.48:50/groups_popup.php";
 
   Future<List<GroupData>> getGroups() async {
     Response res = await get(Uri.parse(groupsURL));

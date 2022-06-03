@@ -25,7 +25,7 @@ class _LoginScreen extends State<LoginScreen> {
   final _password = TextEditingController();
 
   startLogin() async {
-    String apiurl = "http://94.103.188.48/test/login.php"; //api url
+    String apiurl = "http://94.103.188.48:50/login.php"; //api url
     //dont use http://localhost , because emulator don't get that address
     //insted use your local IP address or use live URL
     //hit "ipconfig" in windows or "ip a" in linux to get you local IP

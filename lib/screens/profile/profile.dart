@@ -37,7 +37,7 @@ class ProfileScreen extends StatelessWidget {
                       backgroundColor: Colors.red,
                       child: CircleAvatar(
                         backgroundImage: NetworkImage(
-                            'http://94.103.188.48/test/img/lambda.png'),
+                            'http://94.103.188.48:50/img/lambda.png'),
                         radius: 70,
                       ),
                     ),
