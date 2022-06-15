@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 const _primaryColor = Color(0xFFd62828);
+const timeTableMainTextTheme = TextStyle(color: Colors.black, fontSize: 16.0);
+const timeTableSecondTextTheme = TextStyle(color: Colors.grey, fontSize: 14.0);
+const timeTableHeaderTextTheme = TextStyle(color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.bold);
 
 class CustomTheme {
   static ThemeData get lightTheme {

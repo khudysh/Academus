@@ -4,7 +4,6 @@ import 'package:srm_test/screens/timetable/timetable.dart';
 import 'package:srm_test/screens/attendance/attendance.dart';
 import 'package:srm_test/screens/home/home.dart';
 import 'package:srm_test/screens/students/students.dart';
-import 'package:srm_test/screens/timetable/timetable_test.dart';
 
 class CurrentScreen with ChangeNotifier {
   Widget _currentScreen = const Home();
@@ -25,7 +24,7 @@ class CurrentScreen with ChangeNotifier {
         notifyListeners();
         break;
       case 1:
-        _currentScreen = TimeTableTest();
+        _currentScreen = TimeTable();
         _currentScreenNum = 1;
         notifyListeners();
         break;
