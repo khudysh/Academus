@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:srm_test/widgets/appbar_actions.dart';
 import 'package:srm_test/widgets/leading.dart';
 import 'package:srm_test/controllers/app/switch_body.dart';
 import 'package:srm_test/widgets/navigation.dart';
@@ -17,33 +18,20 @@ class StudyCrm extends StatelessWidget {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-            leading: sizeOfScreen < minDesktopSize ? null : const Leading(),
+            leading: sizeOfScreen < minDesktopSize ? Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              tooltip: 'Открыть меню приложения',
+            );
+          },
+             ) : const Leading(),
             leadingWidth: sizeOfScreen < minDesktopSize ? 56 : 100,
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 15),
-                child: InkResponse(
-                  onTap: () {
-                    Navigator.pushReplacementNamed(context, '/profile');
-                  },
-                  child: const Icon(
-                    Icons.account_circle_sharp,
-                    size: 30,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 15),
-                child: InkResponse(
-                  onTap: () {
-                    Navigator.pushReplacementNamed(context, '/login');
-                  },
-                  child: const Icon(
-                    Icons.login,
-                    size: 30,
-                  ),
-                ),
-              ),
+            actions: const [
+              AppBarActions(),
             ],
             title: sizeOfScreen < minDesktopSize
                 ? const TitleApp(align: Alignment.center)
